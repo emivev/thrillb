@@ -1,0 +1,57 @@
+<header>
+  
+  <h2> Epic Holidays in <%= @location.name %>  </h2>  
+  
+ <br></br>
+ 
+  <div class="subnav">
+    <ul class="nav nav-pills">
+      <li class="active"><a href="#All">All</a></li>
+      <li><a href="#Kiteboarding">Kiteboarding</a></li>
+      <li><a href="#Surfing">Surfing</a></li>
+      <li><a href="#Snow">Snow</a></li>      
+    </ul>
+  </div>
+</header>
+ 
+             
+        
+    <br></br>
+  
+    
+   <% for trip in @location.trips %> 
+    
+    <div class="span6">
+      <ul class="thumbnails">
+        <li class="span6">
+          <div class="trip">
+             <div class="caption">
+              <h3><%= link_to trip.title, trip %> </h3>
+              <p><%= trip.location %>  </p>
+             <div class="price">        
+             <p class="pull-right">  <h3> <%= trip.price %> </h3> /week  </p>
+             
+            </div>
+          </div>
+
+             <% medium_url = trip.medium_url %>
+    	       <% if medium_url %>
+    	       <%= image_tag medium_url %>
+             <% end %>           
+        </li>        
+      </ul>
+    </div>
+    
+   <% end %>
+    
+    
+    <div style="clear:both;"></div>
+    
+   
+
+ 
+ 
+ <br></br>
+
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>

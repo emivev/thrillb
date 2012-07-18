@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @meta_title%></title> 
+  <meta name="keywords" content="<%= @meta_keywords %>" />
+  <meta name="description" content="<%= @meta_description %>" />
+
+  <%= favicon_link_tag 'favicon.ico' %>    
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= stylesheet_link_tag 'gmaps4rails' %>
+  <%= javascript_include_tag "application" %>  
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27211558-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<script type="text/javascript">
+  var _kmq = _kmq || [];
+  function _kms(u){
+    setTimeout(function(){
+    var s = document.createElement('script'); var f = document.getElementsByTagName('script')[0]; s.type = 'text/javascript'; s.async = true;
+    s.src = u; f.parentNode.insertBefore(s, f);
+    }, 1);
+  }
+  _kms('//i.kissmetrics.com/i.js');_kms('//doug1izaerwt3.cloudfront.net/d891e3cc4f9f8003d5a04a8f83f97be93705cbae.1.js');
+</script>
+<%= yield :head %>
+</head>
+  <body>
+  	
+  	<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  	
+  	<script type="text/javascript">var _kiq = _kiq || [];</script>
+<script type="text/javascript" src="//s3.amazonaws.com/ki.js/36177/70e.js" async="true"></script>  		
+	
+
+	<%= render 'layouts/header' %>
+	<div class="container">      	  
+	  
+		<%= yield %>
+        <%= render 'layouts/footer' %>
+        <%= yield :scripts %>
+    </div>
+	
+  
+  <script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName('script')[0];
+a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0012/8271.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+  
+  </body>
+</html>

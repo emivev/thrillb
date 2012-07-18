@@ -1,0 +1,33 @@
+<% if signed_in? %>
+
+<div class="tripshow">
+
+<h3>Listing All locations</h3>
+
+<br></br>
+ 
+
+<table class="table">
+        
+        
+        <thead>
+          <tr>
+          	<% @locations.group_by(&:continent).each do |continent, locations| %>
+            <th> <%= continent %> </th>            
+          </tr>
+        </thead>
+        <tbody>
+         <% locations.each do |location| %> 
+          <tr>
+            <td> <%= link_to location.name, location %> </td>            
+          </tr>          
+        <% end %>
+        </tbody>
+      <% end %>
+      </table>
+  
+<br></br> 
+
+<%= link_to 'New Location', new_location_path %>
+<% end %>
+</div>

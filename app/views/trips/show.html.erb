@@ -1,0 +1,321 @@
+<div class="tripshow">
+
+
+ 
+   <h2> <%= @trip.title %> </h2>
+
+
+
+<ul class="location">
+
+  <li>
+    <a href="www.thrillengine.com">Home</a> / <span class="divider"></span>
+  </li>
+  <li>
+    <%= link_to @trip.location, location_path %> / <span class="divider"></span>
+  </li>
+  <li>  
+  	<%= link_to @trip.categories.map(&:name).to_sentence, category_path %>  <span class="divider"></li>
+  
+ </ul>
+
+<br></br>
+
+<% if @trip.facebook.present? %>
+
+<div class="fb-like" data-href="<%= @trip.facebook %>" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false"></div>
+
+<% end %>
+
+
+
+
+<% if @trip.twitter.present? %>
+<a href="<%= @trip.twitter %>" class="twitter-follow-button" data-show-count="true" data-size="small" style="height:50px;"  >Follow @BoardnBreakfast</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<% end %>
+     
+ 
+ 
+ <div class="price1"> 
+<h3>   from <%= @trip.price %>  <small> per person/week </small>   </h3>
+ </div>
+ 
+ <br></br>
+ 
+ <div class="tripcard">
+ 
+<div class="row">
+  <div class="span6">
+    <div id="galleria">
+     <% for image in @trip.images %>	
+	 <%= link_to image_tag(image.image.url(:thumb)), image.image.url(:large), :title => image.title %>
+	 <% end %>
+    </div>
+    <script>
+        
+        Galleria.run('#galleria');
+        Galleria.configure({
+             minScaleRatio: 1,
+             maxScaleRatio: 1,
+            
+             
+       });
+    </script>
+  </div>
+  
+  <div class="span5">
+  	<form class="form-horizontal">
+        <fieldset>
+ 	  
+   <%= form_for :messages do |f| %>
+  <div class="control-group">
+    <div class="controls">
+       <h3>	RESERVE ONLINE</h3>
+   </div>
+ </div>
+ 
+  <div class="control-group">
+    <div class="controls">
+    <%= f.text_field :name, :class => "input-xlarge", :id => "input01", :placeholder => "Name:" %>
+  </div>
+ </div>
+  
+  <div class="control-group">
+    <div class="controls">
+    <%= f.text_field :email, :class => "input-xlarge", :id => "input01", :placeholder => "Email:" %>
+  </div>
+ </div> 
+  
+  <div class="control-group">
+    <div class="controls">
+    <%= f.text_field :subject, :class => "input-xlarge", :id => "input01", :placeholder => "Arriving:" %>
+  </div>
+ </div> 
+  
+  <div class="control-group">
+    <div class="controls">
+    <%= f.text_field :subject, :class => "input-xlarge", :id => "input01", :placeholder => "Leaving:" %>
+  </div>
+ </div> 
+  
+
+  <div class="control-group">
+     <div class="controls">            
+    <%= f.text_area :message, :class => "input-xlarge", :id => "textarea", :rows => "3", :placeholder => "Message" %>
+  </div>
+ </div>
+ 
+ 
+ 
+ <div class="control-group">
+ 	<div class="controls">    
+    <%= f.submit :class => " btn btn-primary btn-large ", :value => "Send Message" %>
+    </div>
+ </div>
+  
+<% end %>
+</div>
+
+  </fieldset>
+ </form>
+</div>  
+
+ 
+ 
+
+</div>
+
+<br></br>
+
+
+
+
+<div class="row-fluid">
+   <div class="span8">
+     <ul class="nav nav-tabs">
+       <li><a href="#description" data-toggle="tab">Description</a>     </li>
+       <li><a href="#rates" data-toggle="tab">Rates</a></li>
+       <li><a href="#amenities" data-toggle="tab">Amenities</a></li>
+     </ul>
+
+
+     <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="description">
+              <p>   <%= @trip.description %>   </p>
+            </div>
+            <div class="tab-pane fade" id="rates">
+             <table class="table table-bordered table-striped">
+              <tr>
+               <th>Room Type</th>       
+               <th>Low Season</th>  
+               <th>Mid Season</th>
+               <th>High Season</th>        
+              </tr>
+                <% for accomodation in @trip.accomodations %>
+                 <tr>        
+                   <td> <b><%= accomodation.name %> </b> - <%= accomodation.description %> </td>
+                   <td>  <%= accomodation.price1 %>  </td>
+                   <td>     <%= accomodation.price2 %> </td>
+                   <td>   <%= accomodation.price3 %> </td>             
+                <% end %>      
+                 </tr>                      
+              </table>                
+              <table class="table table-bordered table-striped">
+                <tr>
+                  <th>Extras</th>
+                  <th>Price</th>
+                </tr>
+                 <% for lesson in @trip.lessons %>
+                 <tr>
+                  <td> <%= lesson.name %> </td>
+                  <td> <i> <%= lesson.description %> </i>  </td>
+                 </tr>
+                <% end %>
+              </table>
+            </div>
+            <div class="tab-pane fade" id="amenities">
+              <% @trip.details.each do |detail| %>
+               <ul>
+             	<li><%=detail.name %> </li>
+             </ul>
+              <% end %>  
+            </div>	                       
+          </div>
+     
+  
+  
+<br></br>
+
+     <% if @trip.youtube.present? %>
+     <p> <strong> Check out more: </strong> </p>
+     <iframe width="530" height="330" src="<%= @trip.youtube %>" frameborder="0" allowfullscreen></iframe>
+     <% end %>
+
+
+     <% if @trip.vimeo.present? %>
+     <p> <strong> Check out more: </strong> </p>
+     <iframe src="<%= @trip.vimeo %>" width="530" height="330" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+     <% end %>
+
+<br></br>
+
+
+     <p> <strong>	<%= @trip.categories.map(&:name).to_sentence %>: </strong> </p>
+         
+    <p>  <%= @trip.conditions %> </p>
+   
+      
+     <p> <strong> How to get there: </strong> </p>
+          
+  <p>   <%= @trip.directions %> </p>
+ 
+
+
+<% if signed_in? %>
+
+<%= link_to 'Edit', edit_trip_path(@trip) %>
+
+<% end %>
+
+   </div> 
+ 
+   <div class="span4">    
+     <strong> Location: </strong> <%= @trip.address %>
+     <p> <b> <%= @trip.spot %> </b> from the closests <%= @trip.categories.map(&:name).to_sentence %> spot </p>
+     <%= gmaps4rails(@json) %>
+
+
+<br></br>
+
+     <p> <strong> What Guests are saying: </strong> </p>
+
+             <% for review in @trip.reviews %>  
+            <ul>
+               <li> <i> <h4> <%= review.content %> <h4> </i> </li>
+               <li> <i> <%= review.name %> </i> </li>
+            </ul>
+              <% end %> 
+
+
+
+<br></br>
+
+   </div>
+</div>
+<a class="book_button" data-toggle="modal" href="#myModal" >Take Me There</a>
+
+
+
+</div>
+
+
+<div id="myModal" class="modal hide fade" style="display: none; ">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">×</button>
+              <h3>RESERVE ONLINE</h3>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal">
+          <fieldset>
+ 	  
+              <%= form_for :messages do |f| %>
+ 
+  <div class="control-group">
+    <div class="controls">
+    <%= f.text_field :name, :class => "input-xlarge", :id => "input01", :placeholder => "Name:" %>
+  </div>
+ </div>
+  
+  <div class="control-group">
+    <div class="controls">
+    <%= f.text_field :email, :class => "input-xlarge", :id => "input01", :placeholder => "Email:" %>
+  </div>
+ </div> 
+  
+  <div class="control-group">
+    <div class="controls">
+    <%= f.text_field :subject, :class => "input-xlarge", :id => "input01", :placeholder => "Arriving:" %>
+  </div>
+ </div> 
+  
+  <div class="control-group">
+    <div class="controls">
+    <%= f.text_field :subject, :class => "input-xlarge", :id => "input01", :placeholder => "Leaving:" %>
+  </div>
+ </div> 
+  
+
+  <div class="control-group">
+     <div class="controls">            
+    <%= f.text_area :message, :class => "input-xlarge", :id => "textarea", :rows => "3", :placeholder => "Message" %>
+  </div>
+ </div>
+ 
+ 
+ 
+ <div class="control-group">
+ 	<div class="controls">    
+    <%= f.submit :class => " btn btn-primary btn-large ", :value => "Send Message" %>
+    </div>
+ </div>
+  
+<% end %>
+</div>
+
+  </fieldset>
+ </form> 
+               
+      
+            
+            <div class="modal-footer">
+              <p>  By clicking 'Send Message' you are agreeing to the Terms and Conditions   </p>
+              <a href="#" class="btn" data-dismiss="modal">Close</a>
+            </div>
+          </div>
+
+
+
+
+
+
