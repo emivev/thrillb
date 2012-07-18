@@ -4,7 +4,7 @@ gem 'rails', '3.1.0'
 
 gem 'paperclip', '2.7.0'
 
-gem 'mocha'
+
 
 gem 'acts_as_tree'
 
