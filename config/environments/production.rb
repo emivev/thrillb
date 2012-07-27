@@ -46,7 +46,18 @@ N1::Application.configure do
   # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = true
+  
+   # Change mail delvery to either :smtp, :sendmail, :file, :test
+  config.action_mailer.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :domain               => "thrillengine.com",
+  :user_name            => "emils.veveris@thrillengine.com",
+  :password             => "Aeszinutavu16",
+  :authentication       => :plain,
+  :enable_starttls_auto => true
+}
 
   # Enable threaded mode
   # config.threadsafe!
