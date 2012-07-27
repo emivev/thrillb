@@ -4,13 +4,7 @@ gem 'rails', '3.1.0'
 
 gem 'paperclip', '2.7.0'
 
-
-
 gem 'acts_as_tree'
-
-gem 'fancybox-rails'
-
-
 
 gem 'has_scope'
 
@@ -28,7 +22,7 @@ gem 'active_attr'
 
 gem 'bootstrap-datepicker-rails'
 
-gem 'bootstrap-sass'
+
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -48,10 +42,10 @@ gem 'json'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
+  gem 'sass-rails', '3.1.4'
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
-  
+  gem 'bootstrap-sass'
 end
 
 gem 'jquery-rails'
