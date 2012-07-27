@@ -28,7 +28,7 @@ gem 'active_attr'
 
 gem 'bootstrap-datepicker-rails'
 
-
+gem 'bootstrap-sass'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -51,7 +51,7 @@ group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
-  gem 'bootstrap-sass'
+  
 end
 
 gem 'jquery-rails'
