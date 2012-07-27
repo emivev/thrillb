@@ -1,44 +1,13 @@
 <header class="jumbotron subhead" id="overview">  
-  <h1> Epic <%= @category.name %> Holidays  </h1>      
+  <h1 style ="color:#000;"> Epic <%= @category.name %> Holidays  </h1>      
 </header>
  
  
            
    <br></br>
    
-  <div class="subnav"> 
-   <ul class="nav nav-pills">            
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">All Types of Places <b class="caret"></b></a>
-              <ul id="menu1" class="dropdown-menu">
-                <li><a href="#">Hotels</a></li>
-                <li><a href="#">Hostels</a></li>
-                <li><a href="#">B&B</a></li>               
-                <li><a href="#">Vacation rental</a></li>
-                <li><a href="#">Camp</a></li>
-              </ul>
-            </li>            
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">All Countries <b class="caret"></b></a>
-              <ul id="menu2" class="dropdown-menu">
-                <li><a href="#">France</a></li>
-                <li><a href="#">Portugal</a></li>
-                <li><a href="#">Morocco</a></li>                
-                <li><a href="#">Dom. Rep.</a></li>
-              </ul>
-            </li>            
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#"> All Budgets <b class="caret"></b></a>
-              <ul id="menu3" class="dropdown-menu">
-                <li><a href="#">Budget</a></li>
-                <li><a href="#">Semi-Lux</a></li>
-                <li><a href="#">Lux</a></li>               
-              </ul>
-            </li>
-          </ul>
-       </div> 
-    <br></br>
-  
+        
+   <div class="border"> 
     
    <% for trip in @category.trips %> 
     
@@ -65,15 +34,15 @@
     
    <% end %>
     
+   
     
     <div style="clear:both;"></div>
     
    
+ </div>
+ 
+ 
 
- 
- 
- <br></br>
- 
  
    	
   
