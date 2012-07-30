@@ -67,8 +67,19 @@
   <div class="span5">
   	<form class="form-horizontal">
         <fieldset>
- 	  
-   <%= form_for :messages do |f| %>
+ 	
+ 	
+ 	
+   
+   
+   
+   
+                                                
+   
+   <%= form_for :messages , :url => messages_path(@message), :html => {:method => :post} do |f| %>
+ 
+ 
+       
   <div class="control-group">
     <div class="controls">
        <h3>	RESERVE ONLINE</h3>
@@ -89,15 +100,11 @@
   
   <div class="control-group">
     <div class="controls">
-    <%= f.text_field :subject, :class => "input-xlarge", :id => "input01", :placeholder => "Arriving:" %>
+    <%= f.text_field :subject, :class => "input-xlarge", :id => "input01", :value => "nameoftheplace" %>
   </div>
  </div> 
   
-  <div class="control-group">
-    <div class="controls">
-    <%= f.text_field :subject, :class => "input-xlarge", :id => "input01", :placeholder => "Leaving:" %>
-  </div>
- </div> 
+ 
   
 
   <div class="control-group">
