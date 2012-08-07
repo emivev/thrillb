@@ -13,7 +13,7 @@ has_many :lessons, :dependent => :destroy
 has_many :reviews, :dependent => :destroy
 has_many :messages
 
- attr_accessible :title, :description, :images_attributes, :price, :url, :location_id, :category_ids, :continent_id, :type_ids, :detail_ids, :accomodations_attributes, :lessons_attributes, :reviews_attributes, :address, :latitude, :longitude, :vimeo, :youtube, :facebook, :twitter, :directions, :conditions, :spot, :messages_attributes 
+ attr_accessible :title, :description, :images_attributes, :price, :url, :location_id, :category_ids, :continent_id, :type_ids, :detail_ids, :accomodations_attributes, :lessons_attributes, :reviews_attributes, :address, :latitude, :longitude, :vimeo, :youtube, :facebook, :twitter, :directions, :conditions, :spot, :messages_attributes, :trip_id 
  has_many :images
     
  accepts_nested_attributes_for :images, :allow_destroy => true
