@@ -45,9 +45,10 @@ $lightGray: #999;
 
 .headline {
 	
+	background: url(im3.png);
     margin-top: -310px;
 	position: absolute;
-	margin-left:60px;	
+	margin-left:65px;	
     font-weight: bold;
     color: rgb(255, 255, 255);
     line-height: 1.2;
@@ -68,7 +69,7 @@ $lightGray: #999;
 	background: none;
 	color: #fff;
 	font-size: 24px;	
-	text-shadow: 0 0 12px rgba(0, 0, 0.9, 0.8);
+	
 	position: absolute;
     left: 65px;
     right: 0;
@@ -78,11 +79,16 @@ $lightGray: #999;
 	
 }
 
+.carousel-caption2 a {
+	
+	color: #00ddff; 
+	
+}
 
 #myCarousel {
 	
-	
-	box-shadow: inset 0 0 4px rgba(0,0,0,0.05),0 0 9px rgba(0,0,0,0.1);   
+	border: solid 8px #fff;
+	  
 	
 }
 
@@ -103,10 +109,10 @@ $lightGray: #999;
 
 .carousel-control2.left {
 	
-	background:url(left2.png) no-repeat ;
+	background:url(left22.png) no-repeat ;
 	height:59px;
 	width:59px;
-	left:10px; 
+	left:-12px; 
 	
 	
 }
@@ -116,8 +122,8 @@ $lightGray: #999;
 	
 	
     left:auto;
-    right:-10px;
-	background:url(right2.png) no-repeat ;	
+    right:-12px;
+	background:url(right22.png) no-repeat ;	
     height:59px;
 	width:59px;
 }
@@ -155,15 +161,18 @@ $lightGray: #999;
 .container {
 	width: 980px;
 	
+	
 }
 
 html {
   overflow-y: scroll;
+  border-top: 5px $grayMediumLight solid;
 }
 
 body {
   margin-top: 50px;
   background: url(lp.png);
+  
   
   
   
@@ -186,6 +195,7 @@ textarea {
 
 .border {
 	
+	border-top: 5px solid $grayMediumLight;
 	border-right: 1px dotted $grayMediumLight;
 	border-left: 1px dotted $grayMediumLight;
 }
@@ -344,7 +354,7 @@ input, textarea, select, .uneditable-input {
 }
 
 .price1 {
-	background: url(im.png);
+	
 	padding: 20px;
 	width: 180px;
 	height:50px;
@@ -353,7 +363,7 @@ input, textarea, select, .uneditable-input {
 	margin-right:10px;
 	font-size:22px;
 	font-weight: bold;
-	color: #fff;
+	border: 1px dotted #efefef;
 	
 }
 
@@ -369,22 +379,8 @@ input, textarea, select, .uneditable-input {
 }
 
 .tripcard {
-	background:$grayMediumLight;
-	padding: 7px;
-	box-shadow: inset 0 0 4px rgba(0,0,0,0.05),0 0 9px rgba(0,0,0,0.1);    
-    border: 1px solid #D4D4D4;
-    border-top-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    border-top-style: solid;
-    border-right-style: solid;
-    border-bottom-style: solid;
-    border-left-style: solid;
-    border-top-color: #D4D4D4;
-    border-right-color: #D4D4D4;
-    border-bottom-color: #D4D4D4;
-    border-left-color: #D4D4D4;
+	
+	padding: 7px;	
     height: 390px;
 	
 }
@@ -416,7 +412,7 @@ input, textarea, select, .uneditable-input {
 
 .tripshow {
    background: url(wt.png);	
-   width: 950px;
+   width: 938px;
    padding: 20px;	
    box-shadow: inset 0 0 4px rgba(0,0,0,0.05),0 0 9px rgba(0,0,0,0.1);    
     border: 1px solid #D4D4D4;
@@ -433,10 +429,20 @@ input, textarea, select, .uneditable-input {
     border-bottom-color: #D4D4D4;
     border-left-color: #D4D4D4;
 	
-	
 }
 
 .fb-like {
-	top:-3px;
+	top:-3px;	
+}
+
+
+.input-xlarge3 {	
+	width: 198px;
+	
+}
+
+.h {
+	
+	display: none;
 	
 }

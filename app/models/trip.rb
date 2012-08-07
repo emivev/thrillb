@@ -13,7 +13,7 @@ has_many :lessons, :dependent => :destroy
 has_many :reviews, :dependent => :destroy
 has_many :messages
 
- attr_accessible :title, :description, :images_attributes, :price, :url, :location_id, :category_ids, :continent_id, :type_ids, :detail_ids, :accomodations_attributes, :lessons_attributes, :reviews_attributes, :address, :latitude, :longitude, :vimeo, :youtube, :facebook, :twitter, :messages, :directions, :conditions, :spot   
+ attr_accessible :title, :description, :images_attributes, :price, :url, :location_id, :category_ids, :continent_id, :type_ids, :detail_ids, :accomodations_attributes, :lessons_attributes, :reviews_attributes, :address, :latitude, :longitude, :vimeo, :youtube, :facebook, :twitter, :directions, :conditions, :spot, :messages_attributes 
  has_many :images
     
  accepts_nested_attributes_for :images, :allow_destroy => true
@@ -24,7 +24,7 @@ has_many :messages
  
  accepts_nested_attributes_for :reviews, :reject_if => lambda { |a| a[:name].blank? }, :allow_destroy => true
  
- accepts_nested_attributes_for :messages, allow_destroy: true
+ accepts_nested_attributes_for :messages, :reject_if => lambda { |a| a[:name].blank? }, :allow_destroy => true
 
 scope :with_category, lambda { |categories|
     categories.present? ? where(:category_ids => categories) : scoped }

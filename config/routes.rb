@@ -1,7 +1,7 @@
 N1::Application.routes.draw do
   
 
-  resources :messages
+  
 
   resources :continents
 
@@ -14,9 +14,13 @@ N1::Application.routes.draw do
   resources :locations
 
   resources :categories
-
-  resources :trips
-
+  
+  resources :messages
+  
+  resources :trips do
+   resources :messages
+  end
+   
   resources :pages
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
@@ -28,12 +32,13 @@ N1::Application.routes.draw do
   root :to => 'trips#index'
   match '/about',   :to => 'pages#about'
   match '/pricing',   :to => 'pages#pricing'
-  match '/messages',   :to => 'messages#new'
-  match "trips/:id", :via=>:post, :controller=>"messages", :action=>"create"
+  match '/thank_you',   :to => 'pages#thank_you'
+ 
   
   get "pages/home"
   get "pages/about"
   get "pages/pricing"
+  get "pages/thank_you"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

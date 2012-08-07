@@ -4,13 +4,13 @@
  * Licensed under the MIT license.
  */
 
-#galleria{height:389px;width:550px;}
+#galleria{height:489px;width:930px; margin-bottom: 30px; }
 
 .galleria-container {
     position: relative;
     overflow: hidden;
     background: #fff;
-    border-right: 1px solid #efefef; 
+    
 }
 .galleria-container img {
     -moz-user-select: none;
@@ -21,15 +21,16 @@
     position: absolute;
     top: 10px;
     bottom: 60px;
-    left: 10px;
+    left: 0px;
     right: 10px;
     overflow:hidden;
 }
 .galleria-thumbnails-container {
     height: 50px;
+    width: 600px;
     bottom: 0;
-    position: absolute;
-    left: 10px;
+    position: absolute;    
+    left: 160px;
     right: 10px;
     z-index: 2;
 }
@@ -68,8 +69,8 @@
 }
 .galleria-info {
     width: 50%;
-    top: 15px;
-    left: 15px;
+    top: 375px;
+    left: 10px;
     z-index: 2;
     position: absolute;
 }
@@ -219,4 +220,21 @@
 .galleria-image-nav-right {
     background-image: url(classic-map.png);
     background-repeat: no-repeat;
+}
+
+
+.booking {
+    
+    height: 280px;
+    width: 228px;
+    z-index: 2;
+    left:970px;
+    padding:20px;
+    top:320px;
+    position: absolute;
+    overflow: hidden;
+    background-image: url("wt.png");
+    -moz-box-shadow: 2px 5px 7px #111;
+    -webkit-box-shadow: 2px 5px 7px #111;
+    box-shadow: 2px 5px 7px #111;
 }

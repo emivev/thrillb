@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120712173616) do
+ActiveRecord::Schema.define(:version => 20120731165345) do
 
   create_table "accomodations", :force => true do |t|
     t.integer   "trip_id"
@@ -99,10 +99,13 @@ ActiveRecord::Schema.define(:version => 20120712173616) do
     t.string   "name"
     t.string   "email"
     t.string   "subject"
-    t.text     "message"
+    t.text     "body"
+    t.integer  "trip_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "messages", ["trip_id"], :name => "index_messages_on_trip_id"
 
   create_table "packages", :force => true do |t|
     t.string    "name"

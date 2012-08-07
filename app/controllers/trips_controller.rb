@@ -4,7 +4,7 @@ class TripsController < ApplicationController
   def index   
     @search = Trip.search(params[:search])  
     
-    @trips = @search.paginate(:page => params[:page], :per_page => 8)
+    @trips = @search.paginate(:page => params[:page], :per_page => 8)  
     
     respond_to do |format|
       format.html # index.html.erb
@@ -20,6 +20,7 @@ class TripsController < ApplicationController
     @meta_description = @trip.description
     @meta_keywords = " #{@trip.location}, #{@trip.categories.map(&:name).to_sentence}, #{@trip.title}, #{@trip.categories.map(&:name).to_sentence} in #{@trip.location}, #{@trip.categories.map(&:name).to_sentence} travel, #{@trip.categories.map(&:name).to_sentence} trips, best #{@trip.categories.map(&:name).to_sentence} spots, top #{@trip.categories.map(&:name).to_sentence} resorts, Adventure Holidays, #{@trip.categories.map(&:name).to_sentence} Holidays, #{@trip.categories.map(&:name).to_sentence} vacations "  
     @json = Trip.find(params[:id]).to_gmaps4rails
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @trip }
