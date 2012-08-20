@@ -49,21 +49,33 @@
   <div class="span6">
     <div id="galleria">
      <% for image in @trip.images %>	
-	 <%= link_to image_tag(image.image.url(:thumb)), image.image.url(:large), :desc => image.title %> 
-	 
+	 <%= link_to image_tag(image.image.url(:thumb)), image.image.url(:large), :alt => image.title %> 	
+	 <span class="desc" style=""> <%= image.title %> </span>
 	 <% end %>
     </div>
     <script>
         
-        Galleria.run('#galleria');
+                   
+        Galleria.run('#galleria', {
+    dataConfig: function(img) {
+        return {
+            description: $(img).parent().next('.desc').html()
+        };
+    }
+    
+             
+});
         Galleria.configure({
-             minScaleRatio: 1.5,
-             maxScaleRatio: 3,
              
+             _toggleInfo: false,
+             showInfo:true,
+            
              
+       
        });
        
    
+      
        
     </script>
    </div>
@@ -74,6 +86,8 @@
   	 	<p> <b> Reserve Online: </b> </p>
  	
  	<%= form_for([@trip, @trip.messages.build]) do |f| %>
+ 	
+ 	<%= render 'shared/error_messages', object: f.object %>
   
     <%= f.text_field :name, :class => "span3", :placeholder => "Name:" %>
  

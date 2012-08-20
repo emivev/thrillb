@@ -1,36 +1,27 @@
-<%= form_for message do |f| %>
-  <% if @message.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
 
-      <ul>
-      <% @message.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
-
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :subject %><br />
-    <%= f.text_field :subject %>
-  </div>
-  <div class="field">
-    <%= f.label :message %><br />
-    <%= f.text_area :message %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<p> <b> Reserve Online: </b> </p>
+ 	
+ 	<%= form_for([@trip, @trip.messages.build]) do |f| %>
+ 	
+ 	<%= render 'shared/error_messages', object: f.object %>
+  
+    <%= f.text_field :name, :class => "span3", :placeholder => "Name:" %>
+ 
+  
+   
+    <%= f.text_field :email, :class => "span3", :placeholder => "Email:" %>
+   
+   <div class="h"> 
+   
+    <%= f.text_field :subject, :class => "h", :value => (@trip.title) %>
+   
+   </div>  
+   
+    <%= f.text_area :body, :class => "input-xlarge3", :placeholder => "Message:", :id => "textarea", :rows => "3" %>
+    
+      
+    <%= f.submit :class => " btn btn-primary btn-large ", :value => "Send Message" %>
+    
+           
+ 
 <% end %>

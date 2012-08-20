@@ -87,7 +87,7 @@ $lightGray: #999;
 
 #myCarousel {
 	
-	border: solid 8px #fff;
+	margin-bottom: 0px;
 	  
 	
 }
@@ -171,7 +171,7 @@ html {
 
 body {
   margin-top: 50px;
-  background: url(lp.png);
+  background: url(wback7.jpg) center top no-repeat;
   
   
   
