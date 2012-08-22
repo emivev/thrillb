@@ -437,8 +437,12 @@ input, textarea, select, .uneditable-input {
 
 
 .input-xlarge3 {	
-	width: 198px;
+	width: 278px;
 	
+}
+
+.input-medium {	
+    width: 138px;
 }
 
 .h {
@@ -446,3 +450,33 @@ input, textarea, select, .uneditable-input {
 	display: none;
 	
 }
+
+.abouth {
+	
+	background: $grayMediumLight;
+	padding: 15px;
+	
+}
+
+
+#myModal {
+	
+	
+	text-align: center;
+	
+}
+
+
+.modal-body {
+	
+	background: url(wood.png);
+	
+}
+
+
+.form-horizontal {
+	
+	background: none;
+	
+}
+

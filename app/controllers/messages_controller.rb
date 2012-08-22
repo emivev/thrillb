@@ -9,8 +9,8 @@ class MessagesController < ApplicationController
         MessageMailer.send_message(@message).deliver
         redirect_to thank_you_path        
       else            
-       
-        render "edit"
+         render "edit"
+        
     end
   end
 end

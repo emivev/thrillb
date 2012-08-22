@@ -1,27 +1,59 @@
 
-<p> <b> Reserve Online: </b> </p>
- 	
+
+
+<form class="form-horizontal">
+          <fieldset>
+ 	  
+ 	  <div class="alert alert-error">
+             <%= @message.errors.full_messages.inspect %>
+ 	  </div>
+ 	  
  	<%= form_for([@trip, @trip.messages.build]) do |f| %>
- 	
- 	<%= render 'shared/error_messages', object: f.object %>
-  
+ 
+  <div class="control-group">
+    <div class="controls">
     <%= f.text_field :name, :class => "span3", :placeholder => "Name:" %>
- 
+  </div>
+ </div>
   
-   
+  <div class="control-group">
+    <div class="controls">
     <%= f.text_field :email, :class => "span3", :placeholder => "Email:" %>
-   
-   <div class="h"> 
-   
-    <%= f.text_field :subject, :class => "h", :value => (@trip.title) %>
-   
-   </div>  
-   
-    <%= f.text_area :body, :class => "input-xlarge3", :placeholder => "Message:", :id => "textarea", :rows => "3" %>
-    
-      
-    <%= f.submit :class => " btn btn-primary btn-large ", :value => "Send Message" %>
-    
-           
+  </div>
+ </div> 
+  
+  <div class="control-group">
+    <div class="controls">
+      <div class="h"> 
+     <%= f.text_field :subject, :class => "h", :value => (@trip.title) %>
+      </div>
+  </div>
+ </div> 
+  
+  <div class="control-group">
+    <div class="controls">
+     <%= f.text_area :body, :class => "input-xlarge3", :placeholder => "Message:", :id => "textarea", :rows => "3" %>
+  </div>
+ </div> 
+  
+
+  
  
+ 
+ <div class="control-group">
+ 	<div class="controls">    
+   <%= f.submit :class => " btn btn-primary btn-large ", :value => "Send Message" %>
+    </div>
+ </div>
+  
 <% end %>
+
+  <div class="control-group">
+ 	<div class="controls">    
+    <%= link_to "Visit Website", (@trip.url) %>
+    </div>
+ </div>
+
+</div>
+  </fieldset>
+ </form> 

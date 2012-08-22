@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap-datepicker
 //= require galleria-1.2.8
 //= require galleria.classic.min
 //= require_tree .
