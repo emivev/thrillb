@@ -3,6 +3,8 @@ N1::Application.routes.draw do
 
   
 
+  resources :budgets
+
   resources :continents
 
   resources :types

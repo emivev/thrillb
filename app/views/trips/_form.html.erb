@@ -16,7 +16,9 @@
   
     <%= f.label :continent_id %><br />
     <%= f.collection_select :continent_id, Continent.all, :id, :name %>
-  
+    
+    <%= f.label :budget_id %><br />
+    <%= f.collection_select :budget_id, Budget.all, :id, :name %>  
   
   
   <div class="field">
