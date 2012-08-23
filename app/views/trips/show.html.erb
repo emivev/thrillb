@@ -69,8 +69,8 @@
              
              _toggleInfo: false,
              showInfo:true,
-            maxScaleRatio: 2,
-            minScaleRatio: 2,
+            maxScaleRatio: 1.8,
+            minScaleRatio: 1.5,
              
        
        });
@@ -234,39 +234,18 @@
               
               <form class="form-horizontal">
           <fieldset>
- 	  
-    <br></br>      
+ 	        
+  
+ <p>  Ask them about availibility, prices and possible options you are interested in (e.g. lessons, rentals, food and etc.) </p> 
+ 
  
   <div class="control-group">
     <div class="controls">
-    <%= f.text_field :name, :class => "span4", :placeholder => "Name:" %>
+    <%= f.text_field :name, :class => "span3", :placeholder => "Name:" %>
+    <%= f.text_field :email, :class => "span3", :placeholder => "Email:" %>
   </div>
  </div>
-  
-  <div class="control-group">
-    <div class="controls">
-    <%= f.text_field :email, :class => "span4", :placeholder => "Email:" %>
-  </div>
- </div> 
-  
-   
-  
-  
-  <div class="input-append date" id="datepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-    <input class="span2" size="16" type="text" value="Leaving:">
-    <span class="add-on"><i class="icon-th"></i></span>
     
-</div>
-   
-  <script>
-  
- $("#datepicker").datepicker()
-  .on('show', function(ev){                 
-      var today = new Date();
-      var t = today.getDate() + "-" + today.getMonth() + "-" + today.getFullYear();
-      $('#datepicker').data({date: t}).datepicker('update');
-  });
-  </script>
   
   <div class="h"> 
   <div class="control-group">
@@ -279,18 +258,10 @@
   
   <div class="control-group">
     <div class="controls">
-     <%= f.text_area :body, :class => "input-xlarge3", :placeholder => "Message:", :id => "textarea", :rows => "4" %>
+     <%= f.text_area :body, :class => "input-xlarge3", :placeholder => "Message:", :id => "textarea", :rows => "4", :rel => "popover", :data => "Ask for availibility "  %>
   </div>
  </div> 
   
- <div class="control-group">
-    <div class="controls">
-
-<label class="checkbox inline">
-  <input type="checkbox" id="inlineCheckbox3" value="option1"> Send me emails with exclusive updates
-</label>
-    </div>
- </div>
  
  <div class="control-group">
  	<div class="controls">    
@@ -299,14 +270,7 @@
  </div>
   
 <% end %>
-
- 
-
-  <div class="control-group">
- 	<div class="controls">    
-    <%= link_to "Visit Website", (@trip.url) %>
-    </div>
- </div>
+  
 
 </div>
   </fieldset>
@@ -315,6 +279,7 @@
       
             
             <div class="modal-footer">              
+               <%= link_to "Visit Website", (@trip.url) %>
               <a href="#" class="btn" data-dismiss="modal">Close</a>
             </div>
           </div>

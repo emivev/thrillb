@@ -22,7 +22,7 @@ N1::Application.configure do
   :port                 => 587,
   :domain               => "thrillengine.com",
   :user_name            => "emils.veveris@thrillengine.com",
-  :password             => "xxxxxxxxxxx",
+  :password             => "Aeszinutavu16",
   :authentication       => :plain,
   :enable_starttls_auto => true
 }

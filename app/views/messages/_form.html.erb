@@ -4,23 +4,19 @@
 <form class="form-horizontal">
           <fieldset>
  	  
- 	  <div class="alert alert-error">
-             <%= @message.errors.full_messages.inspect %>
- 	  </div>
+ 	  
  	  
  	<%= form_for([@trip, @trip.messages.build]) do |f| %>
  
-  <div class="control-group">
+  
+ 
+  <div class="control-group">  	
     <div class="controls">
     <%= f.text_field :name, :class => "span3", :placeholder => "Name:" %>
+     <%= f.text_field :email, :class => "span3", :placeholder => "Email:" %>
   </div>
  </div>
-  
-  <div class="control-group">
-    <div class="controls">
-    <%= f.text_field :email, :class => "span3", :placeholder => "Email:" %>
-  </div>
- </div> 
+     
   
   <div class="control-group">
     <div class="controls">
