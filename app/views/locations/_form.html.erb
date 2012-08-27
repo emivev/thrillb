@@ -26,7 +26,39 @@
     <%= f.collection_select :continent_id, Continent.all, :id, :name %>
   </div>
   
-  <div class="actions">
+ 
+
+<h4>New Files</h4>
+  
+  <%= f.fields_for :images do |image_fields| %>
+ 
+  <% if image_fields.object.new_record? %>
+ 
+  <p>
+  <%= image_fields.file_field :image %>
+  
+  <% end %> 
+
+<% end %>
+   
+  <h4>Old Files</h4>
+    
+  <%= f.fields_for :images do |image_fields| %>
+  
+  <% unless image_fields.object.new_record? %>
+  
+     <p>
+     <%= link_to image_tag(image_fields.object.image.url(:thumb)), image_fields.object.image.url(:original) %>
+      <%= image_fields.label :title, "Image Title" %>
+<%= image_fields.text_field :title %>
+     <%= image_fields.check_box :_destroy %>
+     </p>
+   <% end %>
+  
+  <% end %>
+
+ <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

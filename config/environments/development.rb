@@ -22,7 +22,7 @@ N1::Application.configure do
   :port                 => 587,
   :domain               => "thrillengine.com",
   :user_name            => "emils.veveris@thrillengine.com",
-  :password             => "xxxxxxxxxxxxxx",
+  :password             => "Aeszinutavu16",
   :authentication       => :plain,
   :enable_starttls_auto => true
 }
@@ -42,4 +42,5 @@ N1::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
 end

@@ -1,5 +1,10 @@
 <header>
   
+  
+  <% for image in @location.images %>	
+	 <%= link_to image_tag(image.image.url(:thumb)), image.image.url(:large) %> 		 
+	 <% end %>
+  
   <h2> Epic Holidays in <%= @location.name %>  </h2>  
   
  <br></br>

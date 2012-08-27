@@ -3,11 +3,27 @@
 </header>
  
  
+ <div class="border"> 
+     <ul>                        
+             <%= form_for @search do |f| %>             
+                                                 
+                <li class="droper">  <%= f.collection_select :location_id_equals, Location.order('country ASC').all, :id, :name, :include_blank => true, :prompt => "All locations" %>    </li>                
+                  
+               
+                 <li class="droper">  <%= f.collection_select :budget_id_in, Budget.all, :id, :name, :include_blank => true, :prompt => "All budgets" %>    </li>                
+
+                
+                <li class="droper">  <%= submit_tag "Find", :class => "btn btn-primary btn-large" %> </li>
+      	
+           <% end %>
+         </ul>
+  
+   <div style="clear:both;"></div>
            
    <br></br>
    
         
-   <div class="border"> 
+   
     
    <% for trip in @category.trips %> 
     
@@ -42,7 +58,51 @@
  </div>
  
  
+ <br></br>
+ 
+<!-- Begin MailChimp Signup Form -->
+<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	
+	#mc_embed_signup input.email {
+display: block;
+padding: 6px 0;
+margin: 0 4% 15px 0;
+text-indent: 5px;
+width: 58%;
+min-width: 268px;
+margin-left: 6px;
+line-height: 14px;
+border-radius: 3px;
+}
+		
+#mc_embed_signup label {
+display: block;
+font-size: 18px;
+padding-bottom: 5px;
+font-weight: bold;
+margin-top: 5px;
+margin-right: 10px;
+color:white;
+}	
+	
+	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="http://thrillengine.us4.list-manage.com/subscribe/post?u=b00a6ce905026bcb1bfd68811&amp;id=ffa803ed98" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+  <ul>
+  	
+	<li> <label for="mce-EMAIL">Join the list and get exclusive updates</label> </li>
+	<li> <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required > </li>
+	<li> <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"> </li>
+ 
+ </ul>
+    
+</form>
+</div>
 
+<!--End mc_embed_signup-->
  
    	
   

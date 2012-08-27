@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120823184452) do
+ActiveRecord::Schema.define(:version => 20120826125524) do
 
   create_table "accomodations", :force => true do |t|
     t.integer   "trip_id"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20120823184452) do
     t.timestamp "created_at"
     t.timestamp "updated_at"
     t.string    "title"
+    t.integer   "location_id"
   end
 
   create_table "lessons", :force => true do |t|

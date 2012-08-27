@@ -481,3 +481,18 @@ input, textarea, select, .uneditable-input {
 	
 }
 
+
+
+#mc_embed_signup{ 
+	border-top: dotted 1px $grayMediumLight;
+    margin-bottom: -50px;
+    background:  $grayMediumLight;
+    height: 50px;
+ }
+
+#mc_embed_signup ul { display:inline; }
+
+
+#mc_embed_signup ul li { float:left; list-style: none; margin-left: 20px;  margin-top: 0px;  }
+	
+
