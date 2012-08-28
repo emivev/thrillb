@@ -51,6 +51,7 @@
                 
                  <li class="droper">  <%= f.collection_select :budget_id_in, Budget.all, :id, :name, :include_blank => true, :prompt => "All budgets" %>    </li>                
 
+                 <li class="droper">  <%= f.collection_select :types_id_equals, Type.all, :id, :name, :include_blank => true, :prompt => "All Types" %>    </li>
                 
                 <li class="droper">  <%= submit_tag "Find", :class => "btn btn-primary btn-large" %> </li>
       	
@@ -76,6 +77,9 @@
         <li class="span6">
           <div class="trip">
              <div class="caption">
+             <% if signed_in? %>
+              <%= button_to "delete", trip, :method=>:delete, :class=>:destroy %>
+             <% end %>
               <h3><%= link_to trip.title, trip %> </h3>
               <p><%= trip.location %>  </p>
              <div class="price">        

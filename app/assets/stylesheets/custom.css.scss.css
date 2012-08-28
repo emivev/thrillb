@@ -171,7 +171,7 @@ html {
 
 body {
   margin-top: 50px;
-  background: url(wback7.jpg) center top no-repeat;
+  background: url(lp.png);
   
   
   
@@ -198,6 +198,7 @@ textarea {
 	border-top: 5px solid $grayMediumLight;
 	border-right: 1px dotted $grayMediumLight;
 	border-left: 1px dotted $grayMediumLight;
+	
 }
 
 /* typography */
@@ -363,7 +364,7 @@ input, textarea, select, .uneditable-input {
 	margin-right:10px;
 	font-size:22px;
 	font-weight: bold;
-	border: 1px dotted #efefef;
+	border: 1px dotted #ff3300;
 	
 }
 

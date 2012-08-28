@@ -1,4 +1,4 @@
-<% if signed_in? %>
+
 
 <div class="tripshow">
 
@@ -19,7 +19,10 @@
         <tbody>
          <% locations.each do |location| %> 
           <tr>
-            <td> <%= link_to location.name, location %> </td>            
+            <td> <%= link_to location.name, location %> </td>
+           <% if signed_in? %> 
+            <td> <%= link_to 'Destroy', location, :confirm => 'Are you sure?', :method => :delete %> </td> 
+           <% end %>           
           </tr>          
         <% end %>
         </tbody>
@@ -27,7 +30,7 @@
       </table>
   
 <br></br> 
-
+<% if signed_in? %>
 <%= link_to 'New Location', new_location_path %>
 <% end %>
 </div>

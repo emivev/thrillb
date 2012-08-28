@@ -1,5 +1,6 @@
 <header>
   
+  <br></br>
   
   <% for image in @location.images %>	
 	 <%= link_to image_tag(image.image.url(:thumb)), image.image.url(:large) %> 		 
@@ -9,14 +10,7 @@
   
  <br></br>
  
-  <div class="subnav">
-    <ul class="nav nav-pills">
-      <li class="active"><a href="#All">All</a></li>
-      <li><a href="#Kiteboarding">Kiteboarding</a></li>
-      <li><a href="#Surfing">Surfing</a></li>
-      <li><a href="#Snow">Snow</a></li>      
-    </ul>
-  </div>
+ 
 </header>
  
              
@@ -57,6 +51,8 @@
  
  
  <br></br>
-
+ 
+<% if signed_in? %>
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>
+ <% end %>
