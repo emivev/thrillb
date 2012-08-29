@@ -7,10 +7,7 @@
 
 
 <ul class="location">
-
-  <li>
-    <a href="www.thrillengine.com">Home</a> / <span class="divider"></span>
-  </li>
+    
   <li>
     <%= link_to @trip.location, location_path(@trip.location) %> / <span class="divider"></span>
   </li>
@@ -39,10 +36,15 @@
 <% end %>
      
  
+
  
  <div class="price1"> 
 <h3>   from <%= @trip.price %>  <small> per person/week </small>   </h3>
  </div>
+ 
+ <br></br>
+ 
+ <%= link_to @trip.url, (@trip.url) %>
  
  <br></br>
  
@@ -72,7 +74,7 @@
              
              _toggleInfo: false,
              showInfo:true,
-            maxScaleRatio: 1.8,
+            maxScaleRatio: 1.5,
             minScaleRatio: 1.5,
              
        
@@ -158,20 +160,24 @@
      
   
   
-<br></br>
+
 
      <% if @trip.youtube.present? %>
+     <br></br>
      <p> <strong> Check out more: </strong> </p>
      <iframe width="530" height="330" src="<%= @trip.youtube %>" frameborder="0" allowfullscreen></iframe>
+     <br></br>
      <% end %>
 
 
      <% if @trip.vimeo.present? %>
+     <br></br>
      <p> <strong> Check out more: </strong> </p>
      <iframe src="<%= @trip.vimeo %>" width="530" height="330" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+     <br></br>
      <% end %>
 
-<br></br>
+
 
 
      <p> <strong>	<%= @trip.categories.map(&:name).to_sentence %>: </strong> </p>
@@ -183,7 +189,7 @@
           
   <p>   <%= @trip.directions %> </p>
  
-
+<br></br>
 
 <% if signed_in? %>
 

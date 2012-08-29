@@ -73,26 +73,30 @@
     background: url(classic-loader.gif) no-repeat 2px 2px;
 }
 .galleria-info {
-    width: 50%;
-    top: 375px;
-    left: 235px;
+    width: 99%;
+    
+    font: bold 18px;
+    top: 368px;
+    left: 0px;
     z-index: 2;
     position: absolute;
+    font-size: 22px;
 }
 .galleria-info-text {
-    background: url(im3.png);
+    background: url(bl.png);
     padding: 12px;
     
     /* IE7 */ zoom:1;
 }
 .galleria-info-title {
-    font: bold 12px/1.1 arial,sans-serif;
+    
     margin: 0;
     color: #fff;
     margin-bottom: 7px;
 }
 .galleria-info-description {
-    font: italic 16px/1.4 georgia,serif;
+    
+    font-weight: bold;
     margin: 0;
     color: #fff;
     display: block;

@@ -4,7 +4,7 @@ class TripsController < ApplicationController
   def index   
     @search = Trip.search(params[:search])  
     
-    @trips = @search.paginate(:page => params[:page], :per_page => 8)  
+    @trips = @search.paginate(:page => params[:page], :per_page => 8, :order => 'created_at')  
     
     respond_to do |format|
       format.html # index.html.erb
@@ -32,6 +32,8 @@ class TripsController < ApplicationController
   
   def new
     @trip = Trip.new
+    2.times { @trip.images.description }
+    2.times { @trip.images.conditions }
     5.times { @trip.images.build }
     3.times { @trip.accomodations.build }
     3.times { @trip.lessons.build }  
