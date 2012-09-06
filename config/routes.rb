@@ -1,6 +1,9 @@
 N1::Application.routes.draw do
   
-
+  constraints(:host => /^thrillengine.com/) do
+    root :to => redirect("http://www.thrillengine.com")
+    match '/*path', :to => redirect {|params| "http://www.thrillengine.com/#{params[:path]}"}
+  end
   
 
   resources :budgets
