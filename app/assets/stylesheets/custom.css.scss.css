@@ -230,7 +230,9 @@ p {
   line-height: 1.7em;
 }
 
-
+h3 {
+	font-size: 1.5em;
+}
 
 /* footer */
 
@@ -318,14 +320,19 @@ input, textarea, select, .uneditable-input {
 }  	
 
 .caption{
-  	height:50px;
+  	height:60px;
   	padding: 5px; 
-  	border-bottom: 1px solid #efefef;	
-  }	
+  	border-bottom: 1px solid #efefef;
+  p {
+  	margin-top: -10px;
+  }		
+ }	
  
 .price {	
-	margin-left:334px;
-	margin-top:-45px;
+	margin-left:340px;
+	margin-top:-55px;
+	line-height:40%
+	
 }  
   
 .trip img {	
@@ -361,9 +368,9 @@ input, textarea, select, .uneditable-input {
 	width: 180px;
 	height:50px;
 	float:right;
-	margin-top: -80px;
+	margin-top: -50px;
 	margin-right:10px;
-	font-size:22px;
+	font-size:16px;
 	font-weight: bold;
 	border: 1px dotted #ff3300;
 	
