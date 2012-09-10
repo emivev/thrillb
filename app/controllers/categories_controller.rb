@@ -13,7 +13,11 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:id])   
+    @meta_title = "Thrill Engine - Find the Epic #{@category.name} Holiday. Browse by Location, Type and Budget"
+    @meta_keywords = "#{@category.name} holidays, #{@category.name} vacation, #{@category.name} travel, #{@category.name} hotel, #{@category.name} hostel, #{@category.name} guest house, #{@category.name} rental, #{@category.name} camp, #{@category.name} lessons, #{@category.name} resort, #{@category.name} chalet, budget #{@category.name} travel, luxury #{@category.name} travel "
+    @meta_description = "Thrill Engine is all about trips that will make you feel alive. Fair Prices, No Booking Fees."
+    
     
     @search = Trip.search(params[:search])  
        

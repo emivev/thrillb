@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120826125524) do
+ActiveRecord::Schema.define(:version => 20120910170935) do
 
   create_table "accomodations", :force => true do |t|
     t.integer   "trip_id"
@@ -25,15 +25,23 @@ ActiveRecord::Schema.define(:version => 20120826125524) do
   end
 
   create_table "budgets", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "categories", :force => true do |t|
     t.string    "name"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+    t.string    "slug"
+  end
+
+  add_index "categories", ["slug"], :name => "index_categories_on_slug"
+
+  create_table "categories_locations", :id => false, :force => true do |t|
+    t.integer "category_id"
+    t.integer "location_id"
   end
 
   create_table "categories_trips", :id => false, :force => true do |t|
@@ -71,6 +79,17 @@ ActiveRecord::Schema.define(:version => 20120826125524) do
     t.integer   "trip_id"
   end
 
+  create_table "friendly_id_slugs", :force => true do |t|
+    t.string   "slug",                         :null => false
+    t.integer  "sluggable_id",                 :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
+  add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
+
   create_table "images", :force => true do |t|
     t.string    "image_file_name"
     t.string    "image_content_type"
@@ -100,16 +119,19 @@ ActiveRecord::Schema.define(:version => 20120826125524) do
     t.timestamp "updated_at"
     t.string    "country"
     t.integer   "continent_id"
+    t.string    "slug"
   end
 
+  add_index "locations", ["slug"], :name => "index_locations_on_slug"
+
   create_table "messages", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "subject"
-    t.text     "body"
-    t.integer  "trip_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name"
+    t.string    "email"
+    t.string    "subject"
+    t.text      "body"
+    t.integer   "trip_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   add_index "messages", ["trip_id"], :name => "index_messages_on_trip_id"
@@ -136,27 +158,30 @@ ActiveRecord::Schema.define(:version => 20120826125524) do
   end
 
   create_table "trips", :force => true do |t|
-    t.string    "title"
-    t.string    "price"
-    t.text      "description"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "location_id"
-    t.string    "url"
-    t.integer   "continent_id"
-    t.string    "address"
-    t.float     "latitude"
-    t.float     "longitude"
-    t.boolean   "gmaps"
-    t.string    "vimeo"
-    t.string    "youtube"
-    t.string    "facebook"
-    t.string    "twitter"
-    t.text      "directions"
-    t.text      "conditions"
-    t.string    "spot"
-    t.integer   "budget_id"
+    t.string   "title"
+    t.string   "price"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "location_id"
+    t.string   "url"
+    t.integer  "continent_id"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
+    t.string   "vimeo"
+    t.string   "youtube"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.text     "directions"
+    t.text     "conditions"
+    t.string   "spot"
+    t.integer  "budget_id"
+    t.string   "slug"
   end
+
+  add_index "trips", ["slug"], :name => "index_trips_on_slug"
 
   create_table "trips_types", :id => false, :force => true do |t|
     t.integer "trip_id"

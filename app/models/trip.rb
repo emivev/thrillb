@@ -1,4 +1,8 @@
 class Trip < ActiveRecord::Base
+  
+extend FriendlyId
+friendly_id :title, use: [:slugged, :history] 
+  
     
 belongs_to :user
 belongs_to :location
@@ -62,6 +66,5 @@ acts_as_gmappable
           self.address
       end
        
-
 
 end

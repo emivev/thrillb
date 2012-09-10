@@ -26,7 +26,10 @@
     <%= f.collection_select :continent_id, Continent.all, :id, :name %>
   </div>
   
- 
+   <% Category.all.each do |category| %>
+     <%= check_box_tag "location[category_ids][]", category.id, @location.category_ids.include?(category.id) %>
+     <%= category.name %>
+    <% end %>
 
 <h4>New Files</h4>
   

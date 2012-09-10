@@ -22,7 +22,7 @@ gem 'active_attr'
 
 gem 'bootstrap-datepicker-rails'
 
-
+gem 'friendly_id'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
