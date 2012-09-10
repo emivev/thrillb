@@ -20,7 +20,7 @@ gem 'geocoder'
 
 gem 'active_attr'
 
-gem 'bootstrap-datepicker-rails'
+
 
 gem 'friendly_id'
 
