@@ -16,7 +16,7 @@ class LocationsController < ApplicationController
   def show
     @location = Location.find(params[:id])
     @meta_title = "Thrill Engine - Epic Adventure Holidays in #{@location.name}. Browse by Category, Type and Budget"
-    @meta_keywords = "#{@location.name} #{@location.categories.map(&:name).to_sentence} holidays, #{@location.name} #{@location.categories.map(&:name).to_sentence} vacation, #{@location.name} action holidays, #{@location.name} action vacation,  #{@location.categories.map(&:name).to_sentence} "
+    @meta_keywords = "#{@location.name} #{@location.categories.map(&:name).to_sentence} holidays, #{@location.name} #{@location.categories.map(&:name).to_sentence} vacation, #{@location.name} action holidays, #{@location.name} action vacation,  #{@location.categories.map(&:name).to_sentence} budget holidays in #{@location.name} "
     @meta_description = "Thrill Engine is all about trips that will make you feel alive. Fair Prices, No Booking Fees."
     
 
