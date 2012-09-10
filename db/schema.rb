@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120910170935) do
+ActiveRecord::Schema.define(:version => 20120910161715) do
 
   create_table "accomodations", :force => true do |t|
     t.integer   "trip_id"
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(:version => 20120910170935) do
   end
 
   create_table "categories", :force => true do |t|
-    t.string    "name"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "slug"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "categories", ["slug"], :name => "index_categories_on_slug"
