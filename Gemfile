@@ -20,7 +20,9 @@ gem 'geocoder'
 
 gem 'active_attr'
 
+gem 'builder'
 
+gem 'sitemap_generator'
 
 gem 'friendly_id'
 
