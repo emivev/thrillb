@@ -463,10 +463,16 @@ input, textarea, select, .uneditable-input {
 }
 
 .abouth {
+		
+	border-bottom: 2px solid  $grayMediumLight  ;
 	
-	background: $grayMediumLight;
-	padding: 15px;
+}
+
+.abouts {
 	
+	margin-left: 5px;
+	padding: 20px;
+	background: $grayMediumLight  ;
 }
 
 
