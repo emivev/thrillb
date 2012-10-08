@@ -32,8 +32,6 @@ class TripsController < ApplicationController
   
   def new
     @trip = Trip.new
-    2.times { @trip.images.description }
-    2.times { @trip.images.conditions }
     5.times { @trip.images.build }
     3.times { @trip.accomodations.build }
     3.times { @trip.lessons.build }  
