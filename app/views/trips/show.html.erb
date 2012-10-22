@@ -39,7 +39,11 @@
 
  
  <div class="price1"> 
-<h3>   from <%= @trip.price %>  <small> per person/week </small>   </h3>
+        <h3> <small> from </small> </h3>
+        <h3>  <%= @trip.price %>  <small> /week </small>   </h3>
+        <div class="booking">
+  	 	   <a class="book_button" data-toggle="modal" href="#myModal" > Reserve Online </a> 	 	                                
+        </div>
  </div>
  
  <br></br>
@@ -87,11 +91,7 @@
    </div>
   </div>
   
-  <div class="span5">
-  	 <div class="booking">
-  	 	<a class="book_button" data-toggle="modal" href="#myModal" > Reserve Online </a> 	 	                                
-  </div>
-</div>  
+  
 
 
 

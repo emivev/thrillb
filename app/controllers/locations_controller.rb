@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.find(:all)
+    @locations = Location.find(:all, :order => "country ASC")
     
 
     respond_to do |format|

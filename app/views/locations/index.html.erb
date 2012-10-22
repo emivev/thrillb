@@ -17,14 +17,17 @@
           </tr>
         </thead>
         <tbody>
+       
          <% locations.each do |location| %> 
           <tr>
             <td> <%= link_to location.name, location %> </td>
+            <td> <%= location.categories.map(&:name).to_sentence %> </td>
            <% if signed_in? %> 
             <td> <%= link_to 'Destroy', location, :confirm => 'Are you sure?', :method => :delete %> </td> 
            <% end %>           
           </tr>          
-        <% end %>
+         <% end %>
+         
         </tbody>
       <% end %>
       </table>
