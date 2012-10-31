@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+
+
 gem 'rails', '3.1.0'
 
 gem 'paperclip', '2.7.0'
@@ -25,6 +27,10 @@ gem 'builder'
 gem 'sitemap_generator'
 
 gem 'friendly_id'
+
+gem "heroku"
+
+gem 'taps'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'

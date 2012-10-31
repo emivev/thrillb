@@ -3,10 +3,8 @@
     <div class="container">
       <%= link_to logo, root_path, id: "logo" %>      
       <nav>
-        <ul class="nav pull-right nav-pills">
-          <li> <%= link_to "All Locations", locations_path %>  </li>
-          <li> <%= link_to "The Concept", about_path %>  </li>
-          <li><%= link_to "Get Listed", about_path, :class => "listed" %>  </li>
+        <ul class="nav pull-right nav-pills">          
+          <li> <%= link_to "The Concept", about_path %>  </li>         
           <li><%= link_to "Inspiration", "http://thrillengine.tumblr.com" %>  </li>
          <% if signed_in? %>
           <li><%= link_to "Profile", current_user %>  </li>
