@@ -11,8 +11,7 @@
   <li>
     <%= link_to @trip.location, location_path(@trip.location) %> / <span class="divider"></span>
   </li>
-  <li>  
-  	<%= @trip.categories.map(&:name).to_sentence %>  <span class="divider"></li>
+  
   <li>  
   	<%= @trip.types.map(&:name).to_sentence %>  <span class="divider"></li>
  </ul>

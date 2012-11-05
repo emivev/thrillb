@@ -1,5 +1,7 @@
 N1::Application.routes.draw do
   
+  resources :countries
+
   constraints(:host => /^thrillengine.com/) do
     root :to => redirect("http://www.thrillengine.com")
     match '/*path', :to => redirect {|params| "http://www.thrillengine.com/#{params[:path]}"}
@@ -9,6 +11,8 @@ N1::Application.routes.draw do
   resources :budgets
 
   resources :continents
+  
+ 
 
   resources :types
 
@@ -34,10 +38,11 @@ N1::Application.routes.draw do
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
-  root :to => 'trips#index'
+  root :to => 'pages#home#index'
   match '/about',   :to => 'pages#about'
   match '/pricing',   :to => 'pages#pricing'
   match '/thank_you',   :to => 'pages#thank_you'
+  match '/home',   :to => 'pages#home'
  
   
   get "pages/home"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120910161715) do
+ActiveRecord::Schema.define(:version => 20121103145343) do
 
   create_table "accomodations", :force => true do |t|
     t.integer   "trip_id"
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(:version => 20120910161715) do
   end
 
   create_table "categories", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "slug"
+    t.string    "name"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.string    "slug"
   end
 
   add_index "categories", ["slug"], :name => "index_categories_on_slug"
@@ -53,6 +53,13 @@ ActiveRecord::Schema.define(:version => 20120910161715) do
     t.string    "name"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+  end
+
+  create_table "countries", :force => true do |t|
+    t.string   "name"
+    t.integer  "continent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "details", :force => true do |t|
@@ -80,10 +87,10 @@ ActiveRecord::Schema.define(:version => 20120910161715) do
   end
 
   create_table "friendly_id_slugs", :force => true do |t|
-    t.string   "slug",                         :null => false
-    t.integer  "sluggable_id",                 :null => false
-    t.string   "sluggable_type", :limit => 40
-    t.datetime "created_at"
+    t.string    "slug",                         :null => false
+    t.integer   "sluggable_id",                 :null => false
+    t.string    "sluggable_type", :limit => 40
+    t.timestamp "created_at"
   end
 
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
@@ -158,27 +165,27 @@ ActiveRecord::Schema.define(:version => 20120910161715) do
   end
 
   create_table "trips", :force => true do |t|
-    t.string   "title"
-    t.string   "price"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "location_id"
-    t.string   "url"
-    t.integer  "continent_id"
-    t.string   "address"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.boolean  "gmaps"
-    t.string   "vimeo"
-    t.string   "youtube"
-    t.string   "facebook"
-    t.string   "twitter"
-    t.text     "directions"
-    t.text     "conditions"
-    t.string   "spot"
-    t.integer  "budget_id"
-    t.string   "slug"
+    t.string    "title"
+    t.string    "price"
+    t.text      "description"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "location_id"
+    t.string    "url"
+    t.integer   "continent_id"
+    t.string    "address"
+    t.float     "latitude"
+    t.float     "longitude"
+    t.boolean   "gmaps"
+    t.string    "vimeo"
+    t.string    "youtube"
+    t.string    "facebook"
+    t.string    "twitter"
+    t.text      "directions"
+    t.text      "conditions"
+    t.string    "spot"
+    t.integer   "budget_id"
+    t.string    "slug"
   end
 
   add_index "trips", ["slug"], :name => "index_trips_on_slug"
