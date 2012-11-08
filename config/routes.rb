@@ -43,12 +43,13 @@ N1::Application.routes.draw do
   match '/pricing',   :to => 'pages#pricing'
   match '/thank_you',   :to => 'pages#thank_you'
   match '/home',   :to => 'pages#home'
- 
+  
   
   get "pages/home"
   get "pages/about"
   get "pages/pricing"
   get "pages/thank_you"
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
