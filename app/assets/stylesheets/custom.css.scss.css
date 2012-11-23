@@ -601,3 +601,9 @@ input, textarea, select, .uneditable-input {
 	text-align: center;
 }
 
+.modal-body {
+	
+	min-height: 250px;
+	
+	
+}
