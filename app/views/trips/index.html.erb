@@ -177,8 +177,18 @@ margin-top: 10px;
   
 <script type="text/javascript">
     $(window).load(function(){
-        $('#myModal').modal('show');
-    });
+       if($.cookie('msg') == null)
+            {
+                $('#myModal').modal('show');
+                $.cookie('msg', 'str');
+            }
+            else
+            {
+                $("div#myModal.modal").css('display','none');
+            }
+
+
+        });
 </script>
 
 <div class="modal hide fade" id="myModal">

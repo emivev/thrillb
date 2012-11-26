@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.cookie
 //= require bootstrap
 //= require galleria-1.2.8
 //= require galleria.classic
