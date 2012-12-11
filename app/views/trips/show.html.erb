@@ -39,7 +39,7 @@
  
  <div class="price1"> 
         <h3> <small> from </small> </h3>
-        <h3>  <%= @trip.budget %>  <small> /week </small>   </h3>
+        <h3>  <%= @trip.price %>  <small> per person/week </small>   </h3>
         <div class="booking">
   	 	   <a class="book_button" data-toggle="modal" href="#myModal" > Reserve Online </a> 	 	                                
         </div>
@@ -222,7 +222,7 @@
 
    </div>
 </div>
-<a class="book_button" data-toggle="modal" href="#myModal" >Reserve Online</a>
+<a class="book_button" data-toggle="modal" href="#myModal" >Check availability</a>
 
 
 
@@ -287,8 +287,7 @@
                
       
             
-            <div class="modal-footer">              
-               <%= link_to "Visit Website", (@trip.url) %>
+            <div class="modal-footer">                            
               <a href="#" class="btn" data-dismiss="modal">Close</a>
             </div>
           </div>
