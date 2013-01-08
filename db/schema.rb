@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219195331) do
+ActiveRecord::Schema.define(:version => 20130108222742) do
 
   create_table "accomodations", :force => true do |t|
     t.integer   "trip_id"
@@ -169,36 +169,36 @@ ActiveRecord::Schema.define(:version => 20121219195331) do
   end
 
   create_table "trips", :force => true do |t|
-    t.string    "title"
-    t.string    "price"
-    t.text      "description"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "location_id"
-    t.string    "url"
-    t.integer   "continent_id"
-    t.string    "address"
-    t.float     "latitude"
-    t.float     "longitude"
-    t.boolean   "gmaps"
-    t.string    "vimeo"
-    t.string    "youtube"
-    t.string    "facebook"
-    t.string    "twitter"
-    t.text      "directions"
-    t.text      "conditions"
-    t.string    "spot"
-    t.integer   "budget_id"
-    t.string    "slug"
-    t.integer   "country_id"
-    t.string    "capacity"
-    t.string    "rooms"
-    t.text      "minstay"
-    t.text      "offer"
-    t.text      "arrange"
-    t.text      "season"
-    t.text      "important"
-    t.string    "rank"
+    t.string   "title"
+    t.string   "price"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "location_id"
+    t.string   "url"
+    t.integer  "continent_id"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
+    t.string   "vimeo"
+    t.string   "youtube"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.text     "directions"
+    t.text     "conditions"
+    t.string   "spot"
+    t.integer  "budget_id"
+    t.string   "slug"
+    t.integer  "country_id"
+    t.string   "capacity"
+    t.text     "rooms",        :limit => 255
+    t.text     "minstay"
+    t.text     "offer"
+    t.text     "arrange"
+    t.text     "season"
+    t.text     "important"
+    t.string   "rank"
   end
 
   add_index "trips", ["slug"], :name => "index_trips_on_slug"
