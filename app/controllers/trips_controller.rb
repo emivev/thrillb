@@ -4,7 +4,7 @@ class TripsController < ApplicationController
   def index   
     @search = Trip.search(params[:search])  
     
-    @trips = @search.paginate(:page => params[:page], :per_page => 8, :order => 'created_at')  
+    @trips = @search.paginate(:page => params[:page], :per_page => 6, :order => 'rank')  
     
     respond_to do |format|
       format.html # index.html.erb
@@ -32,9 +32,10 @@ class TripsController < ApplicationController
   
   def new
     @trip = Trip.new
-    5.times { @trip.images.build }
-    3.times { @trip.accomodations.build }
-    3.times { @trip.lessons.build }  
+    5.times { @trip.images.build }    
+    6.times { @trip.accomodations.build }
+    6.times { @trip.lessons.build } 
+    6.times { @trip.packages.build }  
     3.times { @trip.reviews.build } 
   
     respond_to do |format|
@@ -46,9 +47,10 @@ class TripsController < ApplicationController
   # GET /trips/1/edit
   def edit
     @trip = Trip.find(params[:id])
-    5.times { @trip.images.build }
+    5.times { @trip.images.build }    
     3.times { @trip.accomodations.build }
     3.times { @trip.lessons.build }
+    3.times { @trip.packages.build } 
     3.times { @trip.reviews.build } 
   end
 

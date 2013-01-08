@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121103145343) do
+ActiveRecord::Schema.define(:version => 20121219195331) do
 
   create_table "accomodations", :force => true do |t|
     t.integer   "trip_id"
@@ -139,6 +139,10 @@ ActiveRecord::Schema.define(:version => 20121103145343) do
     t.integer   "trip_id"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+    t.string    "startdate"
+    t.string    "enddate"
+    t.string    "adult"
+    t.string    "children"
   end
 
   add_index "messages", ["trip_id"], :name => "index_messages_on_trip_id"
@@ -186,6 +190,15 @@ ActiveRecord::Schema.define(:version => 20121103145343) do
     t.string    "spot"
     t.integer   "budget_id"
     t.string    "slug"
+    t.integer   "country_id"
+    t.string    "capacity"
+    t.string    "rooms"
+    t.text      "minstay"
+    t.text      "offer"
+    t.text      "arrange"
+    t.text      "season"
+    t.text      "important"
+    t.string    "rank"
   end
 
   add_index "trips", ["slug"], :name => "index_trips_on_slug"

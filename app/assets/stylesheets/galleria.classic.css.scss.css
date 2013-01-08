@@ -4,7 +4,7 @@
  * Licensed under the MIT license.
  */
 
-#galleria{height:489px;width:930px; margin-bottom: 30px; }
+#galleria{height:380px;width:620px; margin-bottom: 30px; }
 
 .galleria-container {
     position: relative;
@@ -22,7 +22,7 @@
 }
 .galleria-stage {
     position: absolute;
-    top: 10px;
+    top: 0px;
     bottom: 60px;
     left: 0px;
     right: 10px;
@@ -35,13 +35,14 @@
     width: 600px;
     bottom: 0;
     position: absolute;    
-    left: 160px;
+    left: 20px;
     right: 10px;
     z-index: 2;
 }
 .galleria-carousel .galleria-thumbnails-list {
-    margin-left: 30px;
+     margin-left: 30px;
     margin-right: 30px;
+    
 }
 .galleria-thumbnails .galleria-image {
     height: 40px;
@@ -73,18 +74,19 @@
     background: url(classic-loader.gif) no-repeat 2px 2px;
 }
 .galleria-info {
-    width: 99%;
+    width: 98.5%;
     
-    font: bold 18px;
-    top: 368px;
+    font: bold;
+    top: 267px;
     left: 0px;
     z-index: 2;
     position: absolute;
-    font-size: 22px;
+    font-size: 16px;
 }
 .galleria-info-text {
     background: url(bl.png);
     padding: 12px;
+    height: 30px;
     
     /* IE7 */ zoom:1;
 }

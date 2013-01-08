@@ -9,8 +9,12 @@
 <ul class="location">
     
   <li>
-    <%= link_to @trip.location, location_path(@trip.location) %> / <span class="divider"></span>
+    <%= @trip.location %> / <span class="divider"></span>
   </li>
+  
+   <li>  
+  	<%= @trip.categories.map(&:name).to_sentence %> / <span class="divider"></li>
+ </li>
   
   <li>  
   	<%= @trip.types.map(&:name).to_sentence %>  <span class="divider"></li>
@@ -20,42 +24,33 @@
 
 <br></br>
 
-<% if @trip.facebook.present? %>
-
-<div class="fb-like" data-href="<%= @trip.facebook %>" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false"></div>
-
-<% end %>
-
-
-
-
-<% if @trip.twitter.present? %>
-<a href="<%= @trip.twitter %>" class="twitter-follow-button" data-show-count="true" data-size="small" style="height:50px;"  >Follow @BoardnBreakfast</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-<% end %>
-     
- 
-
- 
  <div class="price1"> 
-        <h3> <small> from </small> </h3>
-        <h3>  <%= @trip.price %>  <small> per person/week </small>   </h3>
+        
+        <h3> <small> from  </small>  </h3>
+        <h3> <%= @trip.price %>  </h3>
+        
+        <h3> <small> /week </small> </h3>
+        <h6> <small> *price depends on: dates, number of people, type of rooms and services you need* </small> </h6>
+        <h5> Capacity: <small> <%= @trip.capacity %> </small> </h5>
+        <h5> Open: <small> <%= @trip.season %> </small> </h5>
+        <h5> Note:	<small> <%= @trip.important %> </small> </h5>
+        
+        <h3> <small> (no hidden costs, credit card charges or booking fees) </small> </h3>
+        
+        
+       
         <div class="booking">
-  	 	   <a class="book_button" data-toggle="modal" href="#myModal" > Reserve Online </a> 	 	                                
+  	 	   <a class="book_button" data-toggle="modal" href="#myModal" >Check Your Price and Availability </a> 	 	                                
         </div>
  </div>
  
- <br></br>
- 
- <% if @trip.url.present? %>
- <%= link_to "Visit Website", (@trip.url) %>
- <% end %>
+
  
  
  <div class="tripcard">
  
 <div class="row">
-  <div class="span6">
+  <div class="span6">   
     <div id="galleria">
      <% for image in @trip.images %>	
 	 <%= link_to image_tag(image.image.url(:thumb)), image.image.url(:large), :alt => image.title %> 	
@@ -78,8 +73,8 @@
              
              _toggleInfo: false,
              showInfo:true,
-            maxScaleRatio: 1.5,
-            minScaleRatio: 1.5,
+            maxScaleRatio: 1.1,
+            minScaleRatio: 1.1,
              
        
        });
@@ -97,57 +92,25 @@
 
 
 
+
 </div>
 
 
 
-
-
+<br></br>
 
 
 
 <div class="row-fluid">
    <div class="span8">
      <ul class="nav nav-tabs">
-       <li><a href="#description" data-toggle="tab">Description</a>     </li>
-       <li><a href="#rates" data-toggle="tab">Rates</a></li>
+       <li><a href="#description" data-toggle="tab">Description</a>     </li>      
        <li><a href="#amenities" data-toggle="tab">Amenities</a></li>
      </ul>
 
 
      <div id="myTabContent" class="tab-content">
-            <div class="tab-pane fade active in" id="description">
-              <p>   <%= @trip.description %>   </p>
-            </div>
-            <div class="tab-pane fade" id="rates">
-             <table class="table table-bordered table-striped">
-              <tr>
-               <th>Room Type</th>       
-               <th>Low Season</th>  
-               <th>Mid Season</th>
-               <th>High Season</th>        
-              </tr>
-                <% for accomodation in @trip.accomodations %>
-                 <tr>        
-                   <td> <b><%= accomodation.name %> </b> - <%= accomodation.description %> </td>
-                   <td>  <%= accomodation.price1 %>  </td>
-                   <td>     <%= accomodation.price2 %> </td>
-                   <td>   <%= accomodation.price3 %> </td>             
-                <% end %>      
-                 </tr>                      
-              </table>                
-              <table class="table table-bordered table-striped">
-                <tr>
-                  <th>Extras</th>
-                  <th>Price</th>
-                </tr>
-                 <% for lesson in @trip.lessons %>
-                 <tr>
-                  <td> <%= lesson.name %> </td>
-                  <td> <i> <%= lesson.description %> </i>  </td>
-                 </tr>
-                <% end %>
-              </table>
+            <div class="tab-pane fade" id="description">
             </div>
             <div class="tab-pane fade" id="amenities">
               <% @trip.details.each do |detail| %>
@@ -158,37 +121,69 @@
             </div>	                       
           </div>
      
-  
-  
-
-
-     <% if @trip.youtube.present? %>
-     <br></br>
-     <p> <strong> Check out more: </strong> </p>
+      
+      <p> <strong> Description: </strong> <small> <%= @trip.description %> </small> </p>
+      <p> <strong> Location: </strong> <small> <%= @trip.spot %> </small> </p>  
+      <p> <strong> Rooms: </strong> <small> <%= @trip.rooms %> </small>  </p> 
+      
+               
+        
+        <% if @trip.youtube.present? %>
+     
+     
      <iframe width="530" height="330" src="<%= @trip.youtube %>" frameborder="0" allowfullscreen></iframe>
      <br></br>
      <% end %>
 
 
      <% if @trip.vimeo.present? %>
-     <br></br>
-     <p> <strong> Check out more: </strong> </p>
+  
+     
      <iframe src="<%= @trip.vimeo %>" width="530" height="330" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
      <br></br>
      <% end %>
-
-
-
-
-     <p> <strong>	<%= @trip.categories.map(&:name).to_sentence %>: </strong> </p>
-         
-    <p>  <%= @trip.conditions %> </p>
-   
       
-     <p> <strong> How to get there: </strong> </p>
-          
-  <p>   <%= @trip.directions %> </p>
+      
+      <p> <strong> Basic stay includes: </strong>   </p>    
+      
+    <div class="list"> 
+     
+      <% for accomodation in @trip.accomodations %>
+                 <ul>        
+                   <li>  <small> <%= accomodation.name %> </small>  </li>
+                  </ul>              
+                <% end %>   
+     
+       
+       
+       <% if @trip.packages.present? %>
+      
+    <p> <strong> Services you can get here: </strong> </p>
+                             
+              <% for package in @trip.packages %>
+                                           
+                 <ul>
+                  <li>  <small> <%= package.name %> </small>  </li>                  
+                 </ul>
+                
+             <% end %>    
+     
+         <% end %>
+     
+     <p> <strong> Can arrange extra for you: </strong> </p>
+     
+               <% for lesson in @trip.lessons %>
+                 <ul>
+                  <li>  <small> <%= lesson.name %> </small>  </li>
+                  
+                 </ul>
+                <% end %>
+
+     </div>
+
+   
  
+
 <br></br>
 
 <% if signed_in? %>
@@ -200,14 +195,55 @@
    </div> 
  
    <div class="span4">    
-     <strong> Location: </strong> <%= @trip.address %>
-     <p> <b> <%= @trip.spot %> </b> from the closests <%= @trip.categories.map(&:name).to_sentence %> spot </p>
-     <%= gmaps4rails(@json) %>
+     <div class="tripside">   
+     	
+     	
+
+     	
+     
+     <% if @trip.url.present? %>
+    <p> <%= link_to "Visit Website", (@trip.url) %> </p>
+    
+     <% end %>
+     
+<p>     
+     <% if @trip.facebook.present? %>
+
+<div class="fb-like" data-href="<%= @trip.facebook %>" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false"></div>
+
+<% end %>
+</p>
+
+
+<p>
+<% if @trip.twitter.present? %>
+<a href="<%= @trip.twitter %>" class="twitter-follow-button" data-show-count="true" data-size="small" style="height:50px;"  >Follow @BoardnBreakfast</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<% end %>
+     
+</p>     
+     
+      
+  
+     
+     <strong> Address: </strong> <%= @trip.address %>
+     
+     <%= gmaps( 
+	:markers => { :data => @json }, 
+	:map_options => { :auto_adjust => true, # :auto_adjust map to center on location
+			  :auto_zoom => false, 	# :auto_zoom defaults to full zoom in, set to false to utilize :zoom
+			  :zoom => 4 }		# :zoom 0 is fully zoomed out (world view), 21 is fully zoomed in (street view)
+) %>
 
 
 <br></br>
 
-     <p> <strong> What Guests are saying: </strong> </p>
+    
+     <p> <strong> Getting there: </strong> <small> <%= @trip.directions %> </small> </p> 
+    
+     ....
+    <h3> <strong> Why this place ?: </strong> </h3>
+   
 
              <% for review in @trip.reviews %>  
             <ul>
@@ -219,10 +255,10 @@
 
 
 <br></br>
-
+       </div>
    </div>
 </div>
-<a class="book_button" data-toggle="modal" href="#myModal" >Check availability</a>
+<a class="book_button" data-toggle="modal" href="#myModal" >Check Your Price and Availability</a>
 
 
 
@@ -245,8 +281,6 @@
           <fieldset>
  	        
   
- <p>  Ask them about availibility, prices and possible options you are interested in (e.g. lessons, rentals, food and etc.) </p> 
- 
  
   <div class="control-group">
     <div class="controls">
@@ -266,12 +300,39 @@
  </div> 
   
   <div class="control-group">
+    <div class="controls">     
+     <%= f.text_field :startdate, :class => "span3", :placeholder => "Startdate:" %>
+      </div>
+  </div>
+  
+  <div class="control-group">
+    <div class="controls">      
+     <%= f.text_field :enddate, :class => "span3", :placeholder => "Enddate:" %>
+      </div>
+  </div>
+  
+  <div class="control-group">
+    <div class="controls">      
+     <%= f.text_field :adult, :class => "span3", :placeholder => "Adults:1" %>
+      </div>
+  </div>
+ 
+  <div class="control-group">
+    <div class="controls">      
+     <%= f.text_field :children, :class => "span3", :placeholder => "Children:0" %>
+      </div>
+  </div>
+  
+  <p>  Ask them about availibility, prices and possible options you are interested in (e.g. lessons, rentals, food and etc.) </p> 
+ 
+  
+  <div class="control-group">
     <div class="controls">
      <%= f.text_area :body, :class => "input-xlarge3", :placeholder => "Message:", :id => "textarea", :rows => "4", :rel => "popover", :data => "Ask for availibility "  %>
   </div>
  </div> 
   
- 
+  
  <div class="control-group">
  	<div class="controls">    
    <%= f.submit :class => " btn btn-primary btn-large ", :value => "Send Message" %>

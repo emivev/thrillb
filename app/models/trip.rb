@@ -18,8 +18,10 @@ has_many :accomodations, :dependent => :destroy
 has_many :lessons, :dependent => :destroy
 has_many :reviews, :dependent => :destroy
 has_many :messages
+has_many :packages, :dependent => :destroy
 
- attr_accessible :title, :description, :images_attributes, :price, :url, :country_id, :location_id, :category_ids, :continent_id, :type_ids, :detail_ids, :accomodations_attributes, :lessons_attributes, :reviews_attributes, :address, :latitude, :longitude, :vimeo, :youtube, :facebook, :twitter, :directions, :conditions, :spot, :messages_attributes, :trip_id, :budget_id 
+
+ attr_accessible :title, :description, :images_attributes, :price, :url, :country_id, :location_id, :category_ids, :continent_id, :type_ids, :detail_ids, :accomodations_attributes, :lessons_attributes, :reviews_attributes, :address, :latitude, :longitude, :vimeo, :youtube, :facebook, :twitter, :directions, :conditions, :spot, :messages_attributes, :trip_id, :budget_id, :capacity, :rooms, :minstay, :offer, :arrange, :season, :important, :rank, :packages_attributes 
  has_many :images
     
  accepts_nested_attributes_for :images, :allow_destroy => true
@@ -27,6 +29,8 @@ has_many :messages
  accepts_nested_attributes_for :accomodations, :reject_if => lambda { |a| a[:name].blank? }, :allow_destroy => true
  
  accepts_nested_attributes_for :lessons, :reject_if => lambda { |a| a[:name].blank? }, :allow_destroy => true
+ 
+ accepts_nested_attributes_for :packages, :reject_if => lambda { |a| a[:name].blank? }, :allow_destroy => true
  
  accepts_nested_attributes_for :reviews, :reject_if => lambda { |a| a[:name].blank? }, :allow_destroy => true
  

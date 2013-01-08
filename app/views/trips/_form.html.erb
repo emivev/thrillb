@@ -1,6 +1,7 @@
 
-<div class="row">
-  <div class="span6 offset3">
+
+<div class="span9">
+
    <%= form_for @trip, :html => { :multipart => true } do |f| %>
   
   
@@ -8,18 +9,25 @@
   
     <%= f.label :title %><br />
     <%= f.text_field :title %>
+    
+    <%= f.label :rank %><br />
+    <%= f.text_field :rank %>
   
     <%= f.label :price %><br />
     <%= f.text_field :price %>
- 
-    <%= f.label :location_id %><br />
+      
+  
+  <div class="checkpoints">
+  	<h2> Location: </h2>  
+  
+   <%= f.label :location_id %><br />
     <%= f.collection_select :location_id, Location.all, :id, :name %>
   
     <%= f.label :continent_id %><br />
     <%= f.collection_select :continent_id, Continent.all, :id, :name %>
     
     <%= f.label :budget_id %><br />
-    <%= f.collection_select :budget_id, Budget.all, :id, :name %>  
+    <%= f.collection_select :budget_id, Budget.all, :id, :name %>
   
   
   <div class="field">
@@ -36,12 +44,27 @@
     <%= f.label :address %><br />
     <%= f.text_field :longitude %>
   </div>
+  
+  <div class="field">
+    <%= f.label :directions %><br />
+    <%= f.text_area :directions %>
+  </div>
+    
+  <div class="field">
+    <%= f.label :spot %><br />
+    <%= f.text_field :spot %>
+  </div>
+  
+  </div>
+   
+   <h2> Category: </h2> 
    
    <% Category.all.each do |category| %>
      <%= check_box_tag "trip[category_ids][]", category.id, @trip.category_ids.include?(category.id) %>
      <%= category.name %>
     <% end %>
    
+    <h2> Type: </h2> 
   
    <% Type.all.each do |type| %>
      <%= check_box_tag "trip[type_ids][]", type.id, @trip.type_ids.include?(type.id) %>
@@ -51,95 +74,89 @@
     
    <h5> Details & amneties </h5>
    <% Detail.all.each do |detail| %>
-     <%= check_box_tag "trip[detail_ids][]", detail.id, @trip.detail_ids.include?(detail.id) %>
-     <%= detail.name %>
+    
+    <ul>
+    
+   <li> <small> <%= check_box_tag "trip[detail_ids][]", detail.id, @trip.detail_ids.include?(detail.id) %>
+     <%= detail.name %> </small> </li>
+    
+    </ul>
+    
     <% end %>
   
- </div>
-</div>  
+
   
-  <div class="field">
-    <%= f.label :directions %><br />
-    <%= f.text_area :directions %>
+  
+  
+   <div class="field">
+    <%= f.label :capacity %><br />
+    <%= f.text_field :capacity %>
   </div>
   
   <div class="field">
-    <%= f.label :conditions %><br />
-    <%= f.text_area :conditions %>
+    <%= f.label :rooms %><br />
+    <%= f.text_field :rooms %>
   </div>
   
-  <div class="field">
-    <%= f.label :spot %><br />
-    <%= f.text_field :spot %>
-  </div>
   
-   <div class="acc">
-  
-   <h2>Accomodations</h2>
+   <div class="checkpoints">  
+    <h2>Basic stay includes: </h2>
   <%= f.fields_for :accomodations, :accomodations do |accomodation_fields| %>
 
-  <div class="field">
-    <%= accomodation_fields.label :accomodation_name %><br />
-    <%= accomodation_fields.text_field :name %>
+  <ul>
+    
+  <li>  <%= accomodation_fields.text_field :name %> </li>
     <%= accomodation_fields.check_box :_destroy %>
     <%= accomodation_fields.label :_destroy, "Remove" %>
-  </div>
-  <div class="field">
-    <%= accomodation_fields.label :description %><br />
-    <%= accomodation_fields.text_area :description %>
-  </div>
-  <div class="field">
-     <%= accomodation_fields.label :price1 %><br />
-    <%= accomodation_fields.text_field :price1 %>
-  </div>
-  <div class="field">
-   <%= accomodation_fields.label :price2 %><br />
-    <%= accomodation_fields.text_field :price2 %>
-  </div>
-  <div class="field">
-    <%= accomodation_fields.label :price3 %><br />
-    <%= accomodation_fields.text_field :price3 %>
-  </div>
- 
+  </ul>  
 <% end %>
-    </div>
+       
+   
   
+   <h2>Services you can get here:</h2>
+  <%= f.fields_for :packages, :packages do |package_fields| %>
+
+  <ul>
+   
+  <li>  <%= package_fields.text_field :name %> </li>
+    <%= package_fields.check_box :_destroy %>
+    <%= package_fields.label :_destroy, "Remove" %>
+  </ul>
+     
+<% end %>
+    
+      
+      
+   
   
-   <div class="acc">
-  
-   <h2>Lessons</h2>
+   <h2>Can arrange extra for you: </h2>
   <%= f.fields_for :lessons, :lessons do |lesson_fields| %>
 
-  <div class="field">
-    <%= lesson_fields.label :lesson_name %><br />
-    <%= lesson_fields.text_field :name %>
+  <ul>
+   
+  <li>  <%= lesson_fields.text_field :name %> </li>
     <%= lesson_fields.check_box :_destroy %>
     <%= lesson_fields.label :_destroy, "Remove" %>
-  </div>
-  
-  <div class="field">
-    <%= lesson_fields.label :description %><br />
-    <%= lesson_fields.text_area :description %>
-  </div>
-  
-  
-  <div class="field">
-     <%= lesson_fields.label :price1 %><br />
-    <%= lesson_fields.text_field :price1 %>
-  </div>
-  <div class="field">
-   <%= lesson_fields.label :price2 %><br />
-    <%= lesson_fields.text_field :price2 %>
-  </div>
-  <div class="field">
-    <%= lesson_fields.label :price3 %><br />
-    <%= lesson_fields.text_field :price3 %>
-  </div>
+  </ul> 
+  <% end %>
+   
+   
+   </div>
  
-<% end %>
-    </div>
+   
+   <br></br>
+   
+   <div class="field">
+    <%= f.label :season %><br />
+    <%= f.text_field :season %>
+  </div>
   
-  
+  <div class="field">
+    <%= f.label :important %><br />
+    <%= f.text_field :important %>
+  </div>
+   
+           
  
   <div class="field">
     <%= f.label :description %><br />
@@ -236,3 +253,6 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+</div>

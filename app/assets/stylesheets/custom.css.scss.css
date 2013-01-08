@@ -38,19 +38,42 @@ $lightGray: #999;
 }
 
 
-
+.headline3 {
+	
+	background: url(bbb7.jpg);
+	padding: 15px;
+	height:240px;
+	
+    border: 5px solid #fff;
+   -webkit-box-shadow: 0px 0px 1px rgba(54, 50, 50, 0.75);
+   -moz-box-shadow:    0px 0px 1px rgba(54, 50, 50, 0.75);
+   box-shadow:         0px 0px 1px rgba(54, 50, 50, 0.75);
+    
+	
+}
 
 .headline {	
-	background: url(im3.png);
-    margin-top: -310px;
-	position: absolute;
-	margin-left:65px;	
+	
+    margin-top:30px;	
     font-weight: bold;
-    color: rgb(255, 255, 255);
+    
     line-height: 1.2;
-    text-shadow: 0px 0px 21px rgba(0, 0, 0, 0.6);
-	padding: 20px;
+    
+	padding: 5px;
 	color: #fff;
+	width: 350px;
+	margin-left:10px;
+	border-top: solid 5px #fff;
+	border-bottom: solid 5px #fff;
+}
+
+
+.search {
+	
+	margin-left: 105px;
+	margin-top: 0px;
+	margin-bottom: 50px;
+	
 }
 
 .lead {	
@@ -205,7 +228,7 @@ textarea {
 
 .border {
 	
-	border-top: 5px solid $grayMediumLight;
+	border-top: 0px solid $grayMediumLight;
 	border-right: 1px dotted $grayMediumLight;
 	border-left: 1px dotted $grayMediumLight;
 	
@@ -218,7 +241,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 5em;
+  font-size: 4em;
   letter-spacing: -2px;
   margin-bottom: 10px;
   color: #fff;
@@ -307,7 +330,7 @@ input, textarea, select, .uneditable-input {
   display: block;
   padding: 10px;
   line-height:220%;
-  box-shadow: inset 0 0 4px rgba(0,0,0,0.05),0 0 9px rgba(0,0,0,0.1);    
+     
     border: 1px solid #D4D4D4;
     border-top-width: 1px;
     border-right-width: 1px;
@@ -336,10 +359,14 @@ input, textarea, select, .uneditable-input {
  }	
  
 .price {	
-	margin-left:320px;
-	margin-top:-49px;
-	line-height:40%
-	
+	margin-left:318px;
+	margin-top:240px;
+	position: absolute;	
+	width: 105px;
+	padding: 5px;
+	background:url(bl.png);
+	font-style: bold;
+	color: #fff;
 }  
   
 .trip img {	
@@ -372,14 +399,15 @@ input, textarea, select, .uneditable-input {
 .price1 {
 	
 	padding: 20px;
-	width: 180px;
-	height:90px;
+	width: 250px;
+	height:328px;
 	float:right;
-	margin-top: -90px;
-	margin-right:10px;
+	margin-top: 15px;
+	margin-right:15px;
 	font-size:16px;
 	font-weight: bold;
-	border: 1px dotted #ff3300;
+	
+	background: #fff;
 	
 }
 
@@ -412,11 +440,25 @@ input, textarea, select, .uneditable-input {
 
 .tripcard {
 	
-	padding: 7px;	
-    height: 390px;
+	padding: 10px;	
+    height: 380px;
+    background:url(txt1.jpg);
+    
+    border: 5px solid #fff;
+   -webkit-box-shadow: 0px 0px 1px rgba(54, 50, 50, 0.75);
+   -moz-box-shadow:    0px 0px 1px rgba(54, 50, 50, 0.75);
+   box-shadow:         0px 0px 1px rgba(54, 50, 50, 0.75);
 	
 }
 
+.tripside {
+	
+   
+   padding: 10px;
+   border: solid 1px #efefef;
+   background: #fafafa;	
+	
+}
 .form-horizontal {
 	
 	padding:10px;
@@ -605,5 +647,20 @@ input, textarea, select, .uneditable-input {
 	
 	min-height: 250px;
 	
+	
+}
+
+.checkpoints {
+	
+	background: #efefef;
+	padding: 20px;
+	
+	
+}
+
+.list ul li {
+	
+	
+	line-height: 100%;
 	
 }
