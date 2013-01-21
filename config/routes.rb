@@ -38,7 +38,7 @@ N1::Application.routes.draw do
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
-  root :to => 'trips#index'
+  root :to => 'pages#home#index'
   match '/about',   :to => 'pages#about'
   match '/pricing',   :to => 'pages#pricing'
   match '/thank_you',   :to => 'pages#thank_you'

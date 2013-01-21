@@ -202,12 +202,12 @@ $lightGray: #999;
 
 html {
   overflow-y: scroll;
-  border-top: 2px #000 solid;
+  
 }
 
 body {
   margin-top: 50px;
-  background: url(lp.png);
+  background: url(lp2.png);
     
 }
 
@@ -274,8 +274,8 @@ footer {
   a {
     color: $gray;
     &:hover { 
-      color: $grayDarker;
-      background: none;
+      
+      
     }
   }  
   small { 
@@ -579,20 +579,39 @@ input, textarea, select, .uneditable-input {
 
 .hshot {
 	
-	background: url(114s.jpg);
-	height: 370px;
-	padding: 15px;	
+	background: url(ttt2.jpg);
+	height: 549px;
+	padding: 15px;
 	
+	 border: 5px solid #fff;
+   -webkit-box-shadow: 0px 0px 1px rgba(54, 50, 50, 0.75);
+   -moz-box-shadow:    0px 0px 1px rgba(54, 50, 50, 0.75);
+   box-shadow:         0px 0px 1px rgba(54, 50, 50, 0.75);
 	
 }
 
-.hshot h1 {
+.hshoth {
 	
-	width: 300px;
-	text-shadow: 0px 0px 21px rgba(0, 0, 0, 0.6);
-	font-size: 46px;
+	padding: 20px;
+	background: url(imm.png);
+	width: 450px;
+	color: #fff;
+	text-align: center;
+	margin-left:245px;
+	margin-top: 80px;
 	
+}
+.hshoth h1 {
+		
+	width: 450px;
+	border-bottom: 1px inset #efefef;
 	
+}
+
+.hshoth h4 {
+	
+	padding: 10px;
+	border-bottom: 1px inset #efefef;
 }
 
 .headline2 {	
@@ -664,3 +683,46 @@ input, textarea, select, .uneditable-input {
 	line-height: 100%;
 	
 }
+
+
+    .myButton {
+        
+        -moz-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+        -webkit-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+        box-shadow:inset 0px 34px 0px -15px #b54b3a;
+        
+        background-color:#a73f2d;
+        
+        border:1px solid #241d13;
+        
+        display:inline-block;
+        color:#ffffff;
+        font-family:arial;
+        font-size:15px;
+        font-weight:bold;
+        padding:9px 23px;
+        text-decoration:none;
+        
+        text-shadow:0px -1px 0px #7a2a1d;
+        width:400px;
+        
+    }
+    .myButton:hover {
+        
+        background-color:#b34332;
+        color:#ffffff;
+        font-family:arial;
+        font-size:15px;
+        font-weight:bold;
+        padding:9px 23px;
+        text-decoration:none;
+        
+        text-shadow:0px -1px 0px #7a2a1d;
+        
+    }
+    .myButton:active {
+        position:relative;
+        top:1px;
+    }
+
+
