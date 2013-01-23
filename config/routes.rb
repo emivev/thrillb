@@ -44,6 +44,7 @@ N1::Application.routes.draw do
   match '/thank_you',   :to => 'pages#thank_you'
   match '/home',   :to => 'pages#home'
   match '/advertise',   :to => 'pages#advertise'
+  match '/invite',   :to => 'pages#invite'
   
   get "pages/home"
   get "pages/about"

@@ -26,14 +26,13 @@
 
  <div class="price1"> 
         
-        <h3> <small> from  </small>  </h3>
+        <h3> <small> Weekly Price Range:  </small>  </h3>
         <h3> <%= @trip.price %>  </h3>
-        
-        <h3> <small> /week </small> </h3>
+                
         <h6> <small> *price depends on: dates, number of people, type of rooms and services you need* </small> </h6>
-        <h5> Capacity: <small> <%= @trip.capacity %> </small> </h5>
-        <h5> Open: <small> <%= @trip.season %> </small> </h5>
-        <h5> Note:	<small> <%= @trip.important %> </small> </h5>
+       
+        <h5> Running period: <small> <%= @trip.season %> </small> </h5>
+        
         
         <h3> <small> (no hidden costs, credit card charges or booking fees) </small> </h3>
         
@@ -206,25 +205,7 @@
     
      <% end %>
      
-<p>     
-     <% if @trip.facebook.present? %>
 
-<div class="fb-like" data-href="<%= @trip.facebook %>" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false"></div>
-
-<% end %>
-</p>
-
-
-<p>
-<% if @trip.twitter.present? %>
-<a href="<%= @trip.twitter %>" class="twitter-follow-button" data-show-count="true" data-size="small" style="height:50px;"  >Follow @BoardnBreakfast</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-<% end %>
-     
-</p>     
-     
-      
-  
      
      <strong> Address: </strong> <%= @trip.address %>
      
@@ -239,7 +220,7 @@
 <br></br>
 
     
-     <p> <strong> Getting there: </strong> <small> <%= @trip.directions %> </small> </p> 
+
     
      ....
     <h3> <strong> Why this place ?: </strong> </h3>
@@ -271,7 +252,7 @@
         
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">×</button>
-              <h3>Contact these guys</h3>
+              <h3>Contact - <%= @trip.title %> </h3>
             </div>
             <div class="modal-body">
               
@@ -284,7 +265,9 @@
  
   <div class="control-group">
     <div class="controls">
-    <%= f.text_field :name, :class => "span3", :placeholder => "Name:" %>
+    <p> <strong>	What's your name ? </strong> </p>
+    <%= f.text_field :name, :class => "span3" %>
+    <p> <strong>	What's your e-mail ? </strong> </p>
     <%= f.text_field :email, :class => "span3", :placeholder => "Email:" %>
   </div>
  </div>
@@ -300,19 +283,21 @@
  </div> 
   
   <div class="control-group">
-    <div class="controls">     
-     <%= f.text_field :startdate, :class => "span3", :placeholder => "Startdate:" %>
+    <div class="controls">
+    	<p> <strong>	When are you going ? </strong> </p>     
+    <%= f.text_field :startdate, :class => "span3", :placeholder => "Startdate:" %>
       </div>
   </div>
   
   <div class="control-group">
     <div class="controls">      
-     <%= f.text_field :enddate, :class => "span3", :placeholder => "Enddate:" %>
+    <%= f.text_field :enddate, :class => "span3", :placeholder => "Enddate:" %>
       </div>
   </div>
   
   <div class="control-group">
     <div class="controls">      
+     	<p> <strong>	How many people? </strong> </p>  
      <%= f.text_field :adult, :class => "span3", :placeholder => "Adults:1" %>
       </div>
   </div>
@@ -323,12 +308,12 @@
       </div>
   </div>
   
-  <p>  Ask them about availibility, prices and possible options you are interested in (e.g. lessons, rentals, food and etc.) </p> 
+  <p> <strong>  What else do you need ? (e.g. lessons, rentals, food and etc.) </strong> </p> 
  
   
   <div class="control-group">
     <div class="controls">
-     <%= f.text_area :body, :class => "input-xlarge3", :placeholder => "Message:", :id => "textarea", :rows => "4", :rel => "popover", :data => "Ask for availibility "  %>
+     <%= f.text_area :body, :class => "span3", :placeholder => "Message:", :id => "textarea", :rows => "3", :rel => "popover", :data => "Ask for availibility "  %>
   </div>
  </div> 
   
@@ -349,6 +334,8 @@
       
             
             <div class="modal-footer">                            
+              
+             
               <a href="#" class="btn" data-dismiss="modal">Close</a>
             </div>
           </div>

@@ -541,19 +541,6 @@ input, textarea, select, .uneditable-input {
 }
 
 
-#myModal {
-	
-	
-	padding: 10px;
-	
-}
-
-
-.modal-body {
-	
-	background: url(wood.png);
-	
-}
 
 
 .form-horizontal {
@@ -662,12 +649,6 @@ input, textarea, select, .uneditable-input {
 	text-align: center;
 }
 
-.modal-body {
-	
-	min-height: 250px;
-	
-	
-}
 
 .checkpoints {
 	
