@@ -34,6 +34,8 @@ gem 'taps'
 
 gem "cocaine", "0.3.2"
 
+gem "ckeditor"
+
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 

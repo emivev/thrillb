@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require galleria-1.2.8
 //= require galleria.classic
+//= require ckeditor/init
 //= require_tree .

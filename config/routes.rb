@@ -52,6 +52,8 @@ N1::Application.routes.draw do
   get "pages/thank_you"
   get "pages/advertise"
   
+  mount Ckeditor::Engine => "/ckeditor"
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
