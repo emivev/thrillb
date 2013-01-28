@@ -398,22 +398,33 @@ input, textarea, select, .uneditable-input {
 
 .price1 {
 	
+	
 	padding: 20px;
 	width: 250px;
-	height:328px;
+	height:200px;
 	float:right;
-	margin-top: 15px;
-	margin-right:15px;
+	margin-right: 0px;
+	
+	
+	
 	font-size:16px;
 	font-weight: bold;
 	
-	background: #fff;
+	
+	
 	
 }
 
 .price1 h3 {
 	
 	margin-top: -5px;
+	font-size: 28px;
+	
+}
+
+.price1 h6 {
+	
+	text-align:center;
 	
 }
 
@@ -439,24 +450,25 @@ input, textarea, select, .uneditable-input {
 }
 
 .tripcard {
-	
-	padding: 10px;	
-    height: 380px;
-    background:url(txt1.jpg);
-    
-    border: 5px solid #fff;
-   -webkit-box-shadow: 0px 0px 1px rgba(54, 50, 50, 0.75);
-   -moz-box-shadow:    0px 0px 1px rgba(54, 50, 50, 0.75);
-   box-shadow:         0px 0px 1px rgba(54, 50, 50, 0.75);
+	background: #f8f6f6;
+	border: none;
+	height: 430px;
+	width: 978px;
+	margin-left: -20px;
+	padding: 0px;
+   
 	
 }
 
 .tripside {
 	
    
-   padding: 10px;
+   padding: 15px;
    border: solid 1px #efefef;
    background: #fafafa;	
+   width: 288px;
+   margin-top:-220px;
+   position: absolute;
 	
 }
 .form-horizontal {
@@ -483,6 +495,12 @@ input, textarea, select, .uneditable-input {
    
    background:#00ff00;background-repeat:no-repeat;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);text-shadow:0 1px 1px black ;color:#fff;font-size:18px;line-height:normal;border:1px solid #ccc;border-bottom-color:#bbb;-webkit-border-radius:0px;-moz-border-radius:0px;border-radius:0px;-webkit-box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.05);-moz-box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.05);box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.05);-webkit-transition:0.1s linear all;-moz-transition:0.1s linear all;-ms-transition:0.1s linear all;-o-transition:0.1s linear all;transition:0.1s linear all;}.btn:hover{background-position:0 -15px;color:#333;text-decoration:none; 
 
+}
+
+.modal-body {
+	
+	background: url(txt1.jpg);
+	
 }
 
 .tripshow {

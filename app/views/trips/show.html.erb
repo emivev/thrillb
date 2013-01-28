@@ -1,8 +1,12 @@
+
+
 <div class="tripshow">
 
 
  
    <h2> <%= @trip.title %> </h2>
+
+
 
 
 
@@ -19,10 +23,9 @@
   <li>  
   	<%= @trip.types.map(&:name).to_sentence %>  <span class="divider"></li>
  </ul>
-
-
-
-<br></br>
+ 
+ <br></br>
+ 
 
  <div class="price1"> 
         
@@ -31,16 +34,18 @@
                 
         <h6> <small> *price depends on: dates, number of people, type of rooms and services you need* </small> </h6>
        
-        <h5> Running period: <small> <%= @trip.season %> </small> </h5>
         
-        
-        <h3> <small> (no hidden costs, credit card charges or booking fees) </small> </h3>
-        
+ 
         
        
         <div class="booking">
-  	 	   <a class="book_button" data-toggle="modal" href="#myModal" >Check Your Price and Availability </a> 	 	                                
+  	 	   <a class="book_button" data-toggle="modal" href="#myModal" >BOOK NOW </a> 	 	                                
         </div>
+        
+         <h6> <small> *No hidden costs, no booking fees* </small> </h6>
+         
+            
+        
  </div>
  
 
@@ -71,9 +76,9 @@
         Galleria.configure({
              
              _toggleInfo: false,
-             showInfo:true,
-            maxScaleRatio: 1.1,
-            minScaleRatio: 1.1,
+             showInfo:true, 
+            maxScaleRatio: 1.2,
+            minScaleRatio: 1.2,
              
        
        });
@@ -102,26 +107,10 @@
 
 <div class="row-fluid">
    <div class="span8">
-     <ul class="nav nav-tabs">
-       <li><a href="#description" data-toggle="tab">Description</a>     </li>      
-       <li><a href="#amenities" data-toggle="tab">Amenities</a></li>
-     </ul>
-
-
-     <div id="myTabContent" class="tab-content">
-            <div class="tab-pane fade" id="description">
-            </div>
-            <div class="tab-pane fade" id="amenities">
-              <% @trip.details.each do |detail| %>
-               <ul>
-             	<li><%=detail.name %> </li>
-             </ul>
-              <% end %>  
-            </div>	                       
-          </div>
+     
      
       
-      <p> <strong> Description: </strong> <small> <%= raw @trip.description %> </small> </p>
+      <p>  <%= raw @trip.description %> </p>
       <p> <strong> Location: </strong> <small> <%= @trip.spot %> </small> </p>  
       <p> <strong> Rooms: </strong> <small> <%= @trip.rooms %> </small>  </p> 
       
@@ -223,12 +212,12 @@
 
     
      ....
-    <h3> <strong> Why this place ?: </strong> </h3>
+    <h5> RECENT REVIEWS:  </h5>
    
 
              <% for review in @trip.reviews %>  
             <ul>
-               <li> <i> <h4> <%= review.content %> <h4> </i> </li>
+               <li> <i> <h3> <%= review.content %> <h3> </i> </li>
                <li> <i> <%= review.name %> </i> </li>
             </ul>
               <% end %> 
@@ -238,8 +227,9 @@
 <br></br>
        </div>
    </div>
+   
 </div>
-<a class="book_button" data-toggle="modal" href="#myModal" >Check Your Price and Availability</a>
+<a class="book_button" data-toggle="modal" href="#myModal" > BOOK NOW</a>
 
 
 
@@ -339,7 +329,6 @@
               <a href="#" class="btn" data-dismiss="modal">Close</a>
             </div>
           </div>
-
 
 
 
