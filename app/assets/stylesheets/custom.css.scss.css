@@ -521,6 +521,7 @@ input, textarea, select, .uneditable-input {
     border-right-color: #D4D4D4;
     border-bottom-color: #D4D4D4;
     border-left-color: #D4D4D4;
+    
 	
 }
 
@@ -606,6 +607,22 @@ input, textarea, select, .uneditable-input {
 	margin-top: 80px;
 	
 }
+
+.hshot2 {
+	
+	background: url(sss2.jpg);
+	height: 549px;
+	padding: 15px;
+	
+	 border: 5px solid #fff;
+   -webkit-box-shadow: 0px 0px 1px rgba(54, 50, 50, 0.75);
+   -moz-box-shadow:    0px 0px 1px rgba(54, 50, 50, 0.75);
+   box-shadow:         0px 0px 1px rgba(54, 50, 50, 0.75);
+	
+	
+}
+
+
 .hshoth h1 {
 		
 	width: 450px;
