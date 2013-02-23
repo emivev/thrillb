@@ -1,0 +1,26 @@
+ 
+ <div class="tripshow">
+ 
+ 
+ 
+ <%= form_for([@trip, @trip.messages.build]) do |f| %> 
+              
+              <form class="form-horizontal">
+          <fieldset>
+ 	        
+  
+  <h2> Reservation </h2>
+  ----------------------------------------------------------------------------
+  
+  <br> </br>
+  
+  
+  
+  
+ <iframe src= "<%= @trip.url %>" width="930" height="900" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+  
+<% end %>
+
+</div>
+
+

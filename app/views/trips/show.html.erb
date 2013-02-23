@@ -1,12 +1,24 @@
 
 
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_floating_style addthis_counter_style" style="left:50px;top:50px;">
+<a class="addthis_button_facebook_like" fb:like:layout="box_count"></a>
+<a class="addthis_button_tweet" tw:count="vertical"></a>
+<a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
+<a class="addthis_counter"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4ee21e93142c5a95"></script>
+<!-- AddThis Button END -->
+
+
 <div class="tripshow">
 
 
  
-   <h2> <%= @trip.title %> </h2>
+   <h2> <%= @trip.headline %> </h2>
 
-
+   <h3> <small> by </small> <%= @trip.title %> </h3>
 
 
 
@@ -29,17 +41,15 @@
 
  <div class="price1"> 
         
-        <h3> <small> Weekly Price Range:  </small>  </h3>
-        <h3> <%= @trip.price %>  </h3>
-                
-        <h6> <small> *price depends on: dates, number of people, type of rooms and services you need* </small> </h6>
-       
-        
- 
+        <h3> <small> Weekly Prices from:  </small>  </h3>
+        <h3> <big> <%= @trip.price %> </big> <strike> <%= @trip.oldprice %> </strike>  </h3>
+                         
         
        
         <div class="booking">
-  	 	   <a class="book_button" data-toggle="modal" href="#myModal" >BOOK NOW </a> 	 	                                
+  	 	     	 	     	 	     	 	   
+  	 	   <%= link_to "BOOK NOW", trip_messages_path(@trip), :class => 'book_button'  %>
+  	 	     	 	    	 	    	 	                                
         </div>
         
          <h6> <small> *No hidden costs, no booking fees* </small> </h6>
@@ -111,9 +121,14 @@
      
       
       <p>  <%= raw @trip.description %> </p>
+     
+      <% if @trip.packages.present? %>
       <p> <strong> Location: </strong> <small> <%= @trip.spot %> </small> </p>  
-      <p> <strong> Rooms: </strong> <small> <%= @trip.rooms %> </small>  </p> 
+      <% end %>
       
+      <% if @trip.packages.present? %>
+      <p> <strong> Rooms: </strong> <small> <%= @trip.rooms %> </small>  </p> 
+      <% end %>
                
         
         <% if @trip.youtube.present? %>
@@ -131,6 +146,7 @@
      <br></br>
      <% end %>
       
+      <% if @trip.packages.present? %>
       
       <p> <strong> Basic stay includes: </strong>   </p>    
       
@@ -142,7 +158,7 @@
                   </ul>              
                 <% end %>   
      
-       
+        <% end %>  
        
        <% if @trip.packages.present? %>
       
@@ -158,6 +174,8 @@
      
          <% end %>
      
+       <% if @trip.lessons.present? %>
+     
      <p> <strong> Can arrange extra for you: </strong> </p>
      
                <% for lesson in @trip.lessons %>
@@ -169,7 +187,7 @@
 
      </div>
 
-   
+       <% end %>
  
 
 <br></br>
@@ -189,10 +207,7 @@
 
      	
      
-     <% if @trip.url.present? %>
-    <p> <%= link_to "Visit Website", (@trip.url) %> </p>
     
-     <% end %>
      
 
      
@@ -212,12 +227,12 @@
 
     
      ....
-    <h5> RECENT REVIEWS:  </h5>
+    <h5> REVIEWS <%= image_tag("str.png") %> </h5>
    
 
              <% for review in @trip.reviews %>  
             <ul>
-               <li> <i> <h3> <%= review.content %> <h3> </i> </li>
+               <li> <i> <h3> <small> <%= review.content %> </small> <h3> </i> </li>
                <li> <i> <%= review.name %> </i> </li>
             </ul>
               <% end %> 
@@ -225,11 +240,19 @@
 
 
 <br></br>
+
+<div class="sidescribe">   
+
+<h3> <strong> Get Notified </strong> About the Next Trip! </h3>
+
+<a href="http://eepurl.com/hhA2A" class="btn btn-primary btn-large">SUBSCRIBE NOW</a>
+
+</div>
        </div>
    </div>
    
 </div>
-<a class="book_button" data-toggle="modal" href="#myModal" > BOOK NOW</a>
+<%= link_to "BOOK NOW", trip_messages_path(@trip), :class => 'book_button'  %>
 
 
 
@@ -237,100 +260,38 @@
 
   
 
-<div id="myModal" class="modal hide fade" style="display: none; ">
-            
-        
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">×</button>
-              <h3>Contact - <%= @trip.title %> </h3>
-            </div>
-            <div class="modal-body">
-              
-              <%= form_for([@trip, @trip.messages.build]) do |f| %> 
-              
-              <form class="form-horizontal">
-          <fieldset>
- 	        
-  
- 
-  <div class="control-group">
-    <div class="controls">
-    <p> <strong>	What's your name ? </strong> </p>
-    <%= f.text_field :name, :class => "span3" %>
-    <p> <strong>	What's your e-mail ? </strong> </p>
-    <%= f.text_field :email, :class => "span3", :placeholder => "Email:" %>
-  </div>
- </div>
-    
-  
-  <div class="h"> 
-  <div class="control-group">
-    <div class="controls">
-     
-     <%= f.text_field :subject, :class => "h", :value => (@trip.title) %>
-    </div>
-  </div>
- </div> 
-  
-  <div class="control-group">
-    <div class="controls">
-    	<p> <strong>	When are you going ? </strong> </p>     
-    <%= f.text_field :startdate, :class => "span3", :placeholder => "Startdate:" %>
-      </div>
-  </div>
-  
-  <div class="control-group">
-    <div class="controls">      
-    <%= f.text_field :enddate, :class => "span3", :placeholder => "Enddate:" %>
-      </div>
-  </div>
-  
-  <div class="control-group">
-    <div class="controls">      
-     	<p> <strong>	How many people? </strong> </p>  
-     <%= f.text_field :adult, :class => "span3", :placeholder => "Adults:1" %>
-      </div>
-  </div>
- 
-  <div class="control-group">
-    <div class="controls">      
-     <%= f.text_field :children, :class => "span3", :placeholder => "Children:0" %>
-      </div>
-  </div>
-  
-  <p> <strong>  What else do you need ? (e.g. lessons, rentals, food and etc.) </strong> </p> 
- 
-  
-  <div class="control-group">
-    <div class="controls">
-     <%= f.text_area :body, :class => "span3", :placeholder => "Message:", :id => "textarea", :rows => "3", :rel => "popover", :data => "Ask for availibility "  %>
-  </div>
- </div> 
-  
-  
- <div class="control-group">
- 	<div class="controls">    
-   <%= f.submit :class => " btn btn-primary btn-large ", :value => "Send Message" %>
-    </div>
- </div>
-  
-<% end %>
-  
 
-</div>
-  </fieldset>
- </form> 
-               
-      
-            
-            <div class="modal-footer">                            
-              
-             
-              <a href="#" class="btn" data-dismiss="modal">Close</a>
-            </div>
           </div>
 
 
+<div class="modal hide fade" id="myModal">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Hey there!</h3>
+  </div>
+  <div class="modal-body">
+  <h1> GET CURATED ADVENTURES RIGHT IN YOUR INBOX </h1>
+ 
+<a href="http://eepurl.com/hhA2A" class="btn btn-large btn-block btn-primary" type="button"> Subscribe For the Free Newsletter  </a>
 
+  </div>
+  
+</div>
+
+<script type="text/javascript">
+    $(window).load(function(){
+       if($.cookie('msg') == null)
+            {
+                $('#myModal').modal('show');
+                $.cookie('msg', 'str');
+            }
+            else
+            {
+                $("div#myModal.modal").css('display','none');
+            }
+
+
+        });
+</script>
 
 

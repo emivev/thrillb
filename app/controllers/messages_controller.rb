@@ -1,6 +1,11 @@
 class MessagesController < ApplicationController
   
   
+  def index
+     @trip = Trip.find(params[:trip_id])
+     @message = @trip.messages.create(params[:message])   
+      
+  end
   
   def create
     @trip = Trip.find(params[:trip_id])

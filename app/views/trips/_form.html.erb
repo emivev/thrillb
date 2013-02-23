@@ -5,6 +5,8 @@
    <%= form_for @trip, :html => { :multipart => true } do |f| %>
   
   
+    <%= f.label :headline %><br />
+    <%= f.text_field :headline %>
 
   
     <%= f.label :title %><br />
@@ -15,7 +17,9 @@
   
     <%= f.label :price %><br />
     <%= f.text_field :price %>
-      
+  
+    <%= f.label :oldprice %><br />
+    <%= f.text_field :oldprice %>  
   
   <div class="checkpoints">
   	<h2> Location: </h2>  

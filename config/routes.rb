@@ -27,7 +27,7 @@ N1::Application.routes.draw do
   resources :messages
   
   resources :trips do
-   resources :messages
+   resources :messages, :path => "reservation"
   end
    
   resources :pages
@@ -43,16 +43,18 @@ N1::Application.routes.draw do
   match '/pricing',   :to => 'pages#pricing'
   match '/thank_you',   :to => 'pages#thank_you'
   match '/home',   :to => 'pages#home'
-  match '/surf',   :to => 'pages#surf'
+  
+  match '/faq',   :to => 'pages#faq'
   match '/advertise',   :to => 'pages#advertise'
   match '/invite',   :to => 'pages#invite'
   
   get "pages/home"
-  get "pages/surf"
+  
   get "pages/about"
   get "pages/pricing"
   get "pages/thank_you"
   get "pages/advertise"
+  get "pages/faq"
   
   mount Ckeditor::Engine => "/ckeditor"
   

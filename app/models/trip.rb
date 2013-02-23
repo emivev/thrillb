@@ -21,7 +21,7 @@ has_many :messages
 has_many :packages, :dependent => :destroy
 
 
- attr_accessible :title, :description, :images_attributes, :price, :url, :country_id, :location_id, :category_ids, :continent_id, :type_ids, :detail_ids, :accomodations_attributes, :lessons_attributes, :reviews_attributes, :address, :latitude, :longitude, :vimeo, :youtube, :facebook, :twitter, :directions, :conditions, :spot, :messages_attributes, :trip_id, :budget_id, :capacity, :rooms, :minstay, :offer, :arrange, :season, :important, :rank, :packages_attributes 
+ attr_accessible :title, :description, :images_attributes, :price, :url, :country_id, :location_id, :category_ids, :continent_id, :type_ids, :detail_ids, :accomodations_attributes, :lessons_attributes, :reviews_attributes, :address, :latitude, :longitude, :vimeo, :youtube, :facebook, :twitter, :directions, :conditions, :spot, :messages_attributes, :trip_id, :budget_id, :capacity, :rooms, :minstay, :offer, :arrange, :season, :important, :rank, :packages_attributes, :headline, :oldprice 
  has_many :images
     
  accepts_nested_attributes_for :images, :allow_destroy => true

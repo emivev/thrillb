@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130108222742) do
+ActiveRecord::Schema.define(:version => 20130216090949) do
 
   create_table "accomodations", :force => true do |t|
     t.integer   "trip_id"
@@ -199,6 +199,8 @@ ActiveRecord::Schema.define(:version => 20130108222742) do
     t.text     "season"
     t.text     "important"
     t.string   "rank"
+    t.text     "headline"
+    t.text     "oldprice"
   end
 
   add_index "trips", ["slug"], :name => "index_trips_on_slug"
