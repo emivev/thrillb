@@ -6,8 +6,8 @@
   
   
               <div class="headline">    
-                <h1> Epic Holidays </h1>
-                <h3> Find the right places to go for your next Adventure </h3>  
+                <h1> <%= link_to "Surf Tours Nicaragua", 'http://www.thrillengine.com/trips/surf-tours-nicaragua' %> </h1>
+                <h3> Quality waves, strong local knowledge and hassel free surf holidays in Nicaragua.From $810 </h3>  
               </div>
   
    </div>
@@ -95,38 +95,6 @@
    <%= link_to 'New Trip', new_trip_path %>
    <% end %> 
   	
-<a class="book_button" data-toggle="modal" href="#myModal" >BOOK NOW </a> 
+
   
-<script type="text/javascript">
-    $(window).load(function(){
-       if($.cookie('msg') == null)
-            {
-                $('#myModal').modal('show');
-                $.cookie('msg', 'str');
-            }
-            else
-            {
-                $("div#myModal.modal").css('display','none');
-            }
-
-
-        });
-</script>
-
-
-
-
-<div class="modal hide fade" id="myModal">
-  <div class="modal-header">
-    <a class="close" data-dismiss="modal">×</a>
-    <h3>Hey there!</h3>
-  </div>
-  <div class="modal-body">
-  <h1> GET CURATED ADVENTURES RIGHT IN YOUR INBOX </h1>
- 
-<a href="http://eepurl.com/hhA2A" class="btn btn-large btn-block btn-primary" type="button"> Subscribe For the Free Newsletter  </a>
-
-  </div>
-  
-</div>
 

@@ -40,9 +40,9 @@ $lightGray: #999;
 
 .headline3 {
 	
-	background: url(bbb7.jpg);
+	background:url(girlsurf.jpg);
 	padding: 15px;
-	height:240px;
+	height:350px;
 	
     border: 5px solid #fff;
    -webkit-box-shadow: 0px 0px 1px rgba(54, 50, 50, 0.75);
@@ -52,11 +52,22 @@ $lightGray: #999;
 	
 }
 
+.headline3:hover {
+	
+	-webkit-box-shadow: 0px 0px 4px 3px #CBDBF0;
+  -moz-box-shadow: 0px 0px 4px 3px #cbdbf0;
+  box-shadow: 0px 0px 4px 3px #CBDBF0;
+	
+	
+}
+
+
 .headline {	
 	
-    margin-top:30px;	
-    font-weight: bold;
     
+    margin-top:20px;	
+    font-weight: bold;
+    text-align: center;
     line-height: 1.2;
     
 	padding: 5px;
@@ -67,6 +78,18 @@ $lightGray: #999;
 	border-bottom: solid 5px #fff;
 }
 
+.headline h3 {
+	
+	padding: 5px;
+	background:url(ttw.png);
+	
+}
+
+.headline a {
+	
+	color: #fff;
+	
+}
 
 .search {
 	
