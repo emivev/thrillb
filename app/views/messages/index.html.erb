@@ -1,15 +1,17 @@
  
  <div class="tripshow">
  
- 
+ <%= link_to "Back", @trip %> 
  
  <%= form_for([@trip, @trip.messages.build]) do |f| %> 
+ 
+ 
               
               <form class="form-horizontal">
           <fieldset>
  	        
   
-  <h2> Reservation </h2>
+  <h2> Reservation </h2> <%= image_tag("paypal.png", :alt => "paypal") %>
   ----------------------------------------------------------------------------
   
   <br> </br>
