@@ -5,8 +5,8 @@ class Image < ActiveRecord::Base
     :storage => :s3,
     :bucket => 'Thrill',
     :s3_credentials => {
-      :access_key_id => 'AKIAJNS6I4ZOXOZYSSLA',
-      :secret_access_key => '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'
+      :access_key_id => 'xxxxxxxxxxxxxxxxx',
+      :secret_access_key => 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
     }
   
   
